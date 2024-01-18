@@ -105,14 +105,20 @@ nav{
 .slide-content{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     text-align: center;
 }
 
-.slide-content span{
-    font-size: 5rem;
-    color: white;
+.slide-header3{
+    color: #fff;
+    font-size: 50px;
+    font-family: 'Playfair Display', serif;
+    margin-top: 500px;
+}
+
+.subhead3{
+    color: #fff;
+    font-size: 20px;
+    transform: translateY(500%);
 }
 
 /*.slide-content span .subhead{
