@@ -7,23 +7,26 @@
 
 header{
     background: #F7F7F7;
+    position: sticky;
+    top: 0;
+    z-index: 9999;
 }
 
 .wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 8px 16px;
+    padding: 5px 32px;
 }
 
 .logo img{
-    width: 80px;
+    width: 55px;
 }
 
 nav ul li a{
     text-decoration: none;
     color: #000000;
-    font-size: 18px;
+    font-size: 15px;
     padding: 16px 32px;
     display: block;
 }
@@ -43,7 +46,7 @@ nav{
     height: 100vh;
     background: white;
     position: fixed;
-    top: 100px;
+    top: 68px;
     left: 0;
     z-index: 999;
     transform: translateX(100%);
@@ -66,69 +69,113 @@ nav{
     cursor: pointer;
 }
 
-.fa-solid,
+.fa-bars,
 .fa-xmark{
     color: #000000;
     font-size: 20px;
     cursor: pointer;
 }
 
-.slider, .hero-container, .slide-content{
-    max-width: 100%;
-    height: 100vh;
-    overflow-x: hidden;
-}
-
-.hero-container{
+#slider-container {
     position: relative;
+    width: 100%;
+    height: 60vh;
+    overflow: hidden;
 }
 
-.slide{
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    transition: opacity 1s ease-in-out;
 }
 
-.slide1{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/slide\ four.JPG);
-}
-.slide2{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/last\ slide.JPG);
-}
-.slide3{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/slide\ seven.png);
-}
-.slide4{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(/image/slide\ ten.png);
-}
-
-.slide-content{
-    display: flex;
-    flex-direction: column;
+.text-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
 }
 
-.slide-header3{
-    color: #fff;
-    font-size: 50px;
+.text-overlay img{
+    width: 100px;
+}
+
+.text-overlay h1{
     font-family: 'Playfair Display', serif;
-    margin-top: 500px;
-}
-
-.subhead3{
-    color: #fff;
-    font-size: 20px;
-    transform: translateY(500%);
-}
-
-/*.slide-content span .subhead{
     font-size: 32px;
-    font-family: 'Raleway', sans-serif;
-    color: #FACD3D;
-    transform: translateY(400px);
+    color: #fff;
+    letter-spacing: 3px;
     font-weight: 600;
+    margin: 16px auto;
 }
-*/
+
+.text-overlay p{
+    color: #fff;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 40px;
+    font-family: 'Lato', sans-serif;
+}
+
+.cta-btn-house{
+    text-decoration: none;
+    font-size: 10px;
+    padding: 10px;
+    background: transparent;
+    border: solid 2px #fff;
+    margin-top: 20px;
+    color: #fff;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.cta-btn-house:hover{
+    color: #000000;
+    background: #fff;
+}
+
+#prev, 
+#next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background: none;
+    display: none;
+}
+
+.fa-chevron-left,
+.fa-chevron-right{
+    font-size: 40px;
+    color: #fff;
+}
+
+#prev {
+    left: 10px;
+}
+
+#next {
+    right: 10px;
+}
+
+.slide1{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ four.JPG);
+}
+.slide2{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ house.JPG);
+}
+.slide3{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ seven.png);
+}
+.slide4{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ ten.png);
+}
 
 @media (min-width: 768px) {
     nav{
@@ -157,28 +204,16 @@ nav{
         display: none;
     }
 
-    .arrow{
-        cursor: pointer;
-        position: absolute;
-        top: 50%;
-        margin-top: -30px;
-        width: 0;
-        height: 0;
-        border-style: solid;
+    #slider-container {
+        height: 80vh;
     }
+
+    #prev,
+    #next{
+        display: unset;
+}
+
+
     
-    #left-arrow{
-        border-width: 30px 40px 30px 0;
-        border-color: transparent #fff transparent transparent;
-        left: 0;
-        margin-left: 30px;
-    }
-    
-    #right-arrow{
-        border-width: 30px 0px 30px 40px;
-        border-color: transparent transparent transparent #fff;
-        right: 0;
-        margin-right: 30px;
-    }
 
 }
