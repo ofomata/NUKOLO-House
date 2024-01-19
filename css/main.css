@@ -101,7 +101,7 @@ nav{
 }
 
 .text-overlay img{
-    width: 100px;
+    width: 80px;
 }
 
 .text-overlay h1{
@@ -165,7 +165,7 @@ nav{
 }
 
 .slide1{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ four.JPG);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ 44\ \(2\).jpg);
 }
 .slide2{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ house.JPG);
@@ -174,8 +174,10 @@ nav{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ seven.png);
 }
 .slide4{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ ten.png);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ 44\ \(1\).jpg);
 }
+
+
 
 @media (min-width: 768px) {
     nav{
@@ -206,6 +208,22 @@ nav{
 
     #slider-container {
         height: 100vh;
+    }
+
+    .text-overlay img{
+        width: 100px;
+    }
+
+    .text-overlay h1{
+        font-size: 60px;
+    }
+
+    .text-overlay p{
+        font-size: 20px;
+    }
+
+    .cta-btn-house{
+        font-size: 14px;
     }
 
     #prev,
