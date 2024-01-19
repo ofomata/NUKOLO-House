@@ -5,6 +5,9 @@
     box-sizing: border-box;
 }
 
+body{
+    background: #F7F7F7;
+}
 header{
     background: #F7F7F7;
     position: sticky;
@@ -177,6 +180,103 @@ nav{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ 44\ \(1\).jpg);
 }
 
+.container{
+    margin: 60px 32px;
+}
+
+.hero-section h3{
+    text-align: center;
+    font-style: italic;
+    font-family: 'Raleway', sans-serif;
+    color: #FACD3D;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.hero-section h1{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 16px;
+    font-family: 'Playfair Display', serif;
+    color: #243455;
+}
+
+.hero-section{
+    position: relative;
+}
+
+.hero-section::after{
+    position: absolute;
+    content: "";
+    bottom: -40px;
+    right: 40%;
+    width: 80px;
+    height: -6px;
+    border: solid 1px #FACD3D;
+}
+
+.sub-hero{
+    margin-top: 100px;
+}
+
+.sub-hero img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.sub-hero-one{
+    margin-top: 40px;
+    text-align: center;
+}
+
+.sub-hero-one .content {
+    display: flex;
+    align-items: last baseline;
+    gap: 10px;
+    margin: 1px auto;
+}
+
+.sub-hero-one .content .number{
+    font-size: 35px;
+    font-family: 'Playfair Display', serif;
+    color: #FACD3D;
+    font-weight: bold;
+}
+
+.sub-hero-one .content h3{
+    font-family: 'Lato', sans-serif;
+    color: #243455;
+    font-size: 16px;
+}
+
+.sub-hero-one .text{
+    font-size: 15px;
+    line-height: 25px;
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+.primary-cta{
+    text-decoration: none;
+    color: #FACD3D;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.primary-cta svg{
+    width: 30px;
+    transition: transform .5s;
+}
+
+.primary-cta:hover svg{
+    transform: translateX(15px);
+}
+
+.primary-cta:hover{
+    text-decoration: underline;
+}
 
 
 @media (min-width: 768px) {
@@ -229,9 +329,33 @@ nav{
     #prev,
     #next{
         display: unset;
-}
+    }
 
+    .container{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-    
+    .hero-section::after{
+        right: 46.5%;
+    }
 
+    .sub-hero{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+    }
+
+    .sub-hero img{
+        width: 350px;
+        height: 350px;
+    }
+
+    .sub-hero-one{
+        text-align: unset;
+    }
+
+    .section-one{
+        flex-basis: 30%;
+    }
 }
