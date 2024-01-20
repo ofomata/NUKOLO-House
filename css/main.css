@@ -417,6 +417,7 @@ form input{
     font-size: 13px;
     font-family: 'Lato', sans-serif;
     font-weight: bold;
+    margin-top: 8px;
 }
 
 .error-message {
