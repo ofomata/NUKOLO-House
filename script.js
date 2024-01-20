@@ -64,4 +64,56 @@ let currentIndex = 0;
 
 
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const formElement = document.getElementById("newsletterform");
+        const subscribeBtn = document.querySelector(".news-btn");
+        const loadingIndicator = document.querySelector(".loading-indicator");
+        const errorMessageDiv = document.getElementById("errorMessage");
+        const resultDiv = document.getElementById("subscription-result");
+        const emailInput = document.querySelector(".email");
+    
+        subscribeBtn.addEventListener("click", (event) => {
+            // Prevent default form submission
+            event.preventDefault();
+    
+            // Hide previous error message
+            errorMessageDiv.textContent = "";
+    
+            // Display loading indicator
+            loadingIndicator.style.display = "block";
+    
+            // Client-side validation
+            if (!formElement.checkValidity()) {
+                // Display error message
+                errorMessageDiv.textContent = "Please enter a valid email address.";
+    
+                // Hide loading indicator
+                loadingIndicator.style.display = "none";
+                return;
+            }
+    
+            // Simulate asynchronous subscription
+            setTimeout(() => {
+                // Simulate a successful subscription
+                resultDiv.textContent = "Successfully subscribed!";
+    
+                // Clear the input field
+                emailInput.value = "";
+    
+                // Hide loading indicator
+                loadingIndicator.style.display = "none";
+    
+                // Clear the success message after 3 seconds (adjust the time as needed)
+                setTimeout(() => {
+                    resultDiv.textContent = "";
+                }, 3000);
+            }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
+        });
+    });
+    
+    
+    
+
+
+
 

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Form Example</title>
+  <style>
+    .loading-indicator {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Frontend Form Example</h1>
+
+  <form id="myForm">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username" required>
+    <button type="button" onclick="submitForm()">Submit</button>
+    <div class="loading-indicator">Submitting...</div>
+  </form>
+
+  <div id="result"></div>
+
+  <script>
+    function submitForm() {
+      const form = document.getElementById('myForm');
+      const formData = new FormData(form);
+
+      // Client-side validation
+      if (!form.checkValidity()) {
+        alert('Please fill out the form correctly.');
+        return;
+      }
+
+      // Display loading indicator
+      const loadingIndicator = document.querySelector('.loading-indicator');
+      loadingIndicator.style.display = 'block';
+
+      // Asynchronous form submission using Fetch API
+      fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: formData,
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Handle the response from the server
+        const resultDiv = document.getElementById('result');
+        resultDiv.textContent = `Server Response: ${JSON.stringify(data)}`;
+
+        // Hide loading indicator
+        loadingIndicator.style.display = 'none';
+      })
+      .catch(error => {
+        // Handle errors
+        console.error('Error:', error);
+
+        // Hide loading indicator
+        loadingIndicator.style.display = 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
