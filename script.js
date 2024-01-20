@@ -95,7 +95,7 @@ let currentIndex = 0;
             // Simulate asynchronous subscription
             setTimeout(() => {
                 // Simulate a successful subscription
-                resultDiv.textContent = "Successfully subscribed!";
+                resultDiv.textContent = "Welcome aboard! Your subscription brings a warm and flavorful touch to our coffee family.";
     
                 // Clear the input field
                 emailInput.value = "";
@@ -106,7 +106,7 @@ let currentIndex = 0;
                 // Clear the success message after 3 seconds (adjust the time as needed)
                 setTimeout(() => {
                     resultDiv.textContent = "";
-                }, 3000);
+                }, 4000);
             }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
         });
     });
