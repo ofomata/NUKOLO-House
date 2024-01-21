@@ -180,8 +180,8 @@ nav{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ 44\ \(1\).jpg);
 }
 
-.container{
-    margin: 60px 32px;
+.container {
+    margin: 60px 32px 0 32px;
 }
 
 .no-space{
@@ -428,6 +428,94 @@ form input{
     font-weight: bold;
 }
 
+.membership{
+    background: #FACD3D;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    padding-top: 16px
+}
+
+.mem-flex-wrap{
+    margin-bottom: 50px;
+}
+
+.left-col h1{
+    color: #F7F7F7;
+    font-family: 'Playfair Display', serif;
+    text-transform: uppercase;
+    font-size: 18px;
+    margin-bottom: 16px;
+    
+}
+
+.left-col .mem-info{
+    color: #fff;
+    font-family: 'Lato', sans-serif;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 25px;
+    text-align: left;
+    font-weight: normal;
+}
+
+.mem-content{
+    display: flex;
+    gap: 16px;
+    align-items: start;
+    margin-top: 32px;
+    color: #fff;
+    margin-bottom: 32px;
+}
+
+.mem-content .numb{
+    color: #000000;
+    padding: 10px;
+    border-radius: 50%;
+    background: #F7F7F7;
+    font-size: 12px;
+}
+
+.mem-content .context h4{
+    font-size: 14px;
+    margin-bottom: 10px;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+
+.mem-content .context .first-context{
+    font-size: 13px;
+}
+
+.right-col img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.right-col{
+    margin-left: -32px;
+    margin-right: -32px;
+}
+
+.to-mem-page{
+    text-decoration: none;
+    padding: 12px 20px;
+    background: #F7F7F7;
+    color: #000000;
+    font-size: 13px;
+}
+
+.to-mem-page:hover{
+    background: #000000;
+    color: #F7F7F7;
+    transition: .5s;
+}
+
+.mem-link{
+    display: flex;
+    justify-content: center;
+}
+
 @media (min-width: 920px) {
     nav{
         transform: translateX(0);
@@ -513,7 +601,8 @@ form input{
     }
     */
 
-    .no-space{
+    .no-space,
+    .right-col{
         margin-left: unset;
         margin-right: unset;
     }
@@ -580,6 +669,26 @@ form input{
     .footer-hr{
         margin-left: unset;
         margin-right: unset;
+    }
+
+    .membership{
+        padding-top: 32px;
+    }
+
+    .mem-flex-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .left-col{
+        flex-basis: 45%;
+    }
+
+    .right-col img{
+        width: 100%;
+        height: auto;
+        object-fit: unset;
     }
 }
 
