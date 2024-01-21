@@ -579,6 +579,35 @@ form input{
     margin-bottom: 40px;
 }
 
+.menu-list{
+    margin-top: 70px;
+    margin-bottom: 80px;
+}
+
+.menu-one{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-one h3{
+    font-family: 'Raleway', sans-serif;
+    font-size: 15px;
+    margin-top: 20px;
+}
+
+.menu-one p{
+    font-size: 14px;
+    color: #A0AECD;
+    margin-top: 2px;
+}
+
+.menu-one .price{
+    color: #000000;
+    font-weight: bold;
+    font-size: 15px;
+}
+
 @media (min-width: 920px) {
     nav{
         transform: translateX(0);
@@ -678,6 +707,8 @@ form input{
         display: flex;
         justify-content: space-between;
         align-items: start;
+        margin-top: 50px;
+        margin-bottom: 80px;
     }
 
     /*.sub-hero img{
@@ -736,6 +767,7 @@ form input{
 
     .membership{
         padding-top: 32px;
+        margin-bottom: 80px;
     }
 
     .mem-flex-wrap{
@@ -768,6 +800,12 @@ form input{
     .connect-header,
     .connect{
         text-align: center;
+    }
+
+    .menu-list{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 100px;
     }
 }
 
