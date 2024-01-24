@@ -30,7 +30,7 @@ function scrollToTop() {
         if (window.scrollY === 0) {
             clearInterval(scrollInterval);
         } else {
-            window.scrollBy(0, -15);
+            window.scrollBy(0, -10);
         }
     }, 16);
 }
@@ -138,6 +138,30 @@ let currentIndex = 0;
             }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
         });
     });
+
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const gridItems = document.querySelectorAll('.connect-item');
+      
+        gridItems.forEach(function (item) {
+          item.addEventListener('mouseover', function () {
+            showText(item);
+          });
+      
+          item.addEventListener('mouseout', function () {
+            hideText(item);
+          });
+        });
+      });
+      
+      function showText(element) {
+        element.querySelector('.hover-text').style.opacity = 1;
+      }
+      
+      function hideText(element) {
+        element.querySelector('.hover-text').style.opacity = 0;
+      }
+      
     
     
     
