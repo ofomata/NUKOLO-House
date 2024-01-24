@@ -13,6 +13,34 @@ menu.addEventListener("click", () => {
 });
 
 
+const toTop = document.querySelector(".top-btn");
+
+window.addEventListener("scroll", checkHeight);
+
+function checkHeight() {
+    if (window.scrollY > 200) {
+        toTop.style.display = "flex";
+    } else {
+        toTop.style.display = "none";
+    }
+}
+
+function scrollToTop() {
+    const scrollInterval = setInterval(() => {
+        if (window.scrollY === 0) {
+            clearInterval(scrollInterval);
+        } else {
+            window.scrollBy(0, -15);
+        }
+    }, 16);
+}
+
+toTop.addEventListener("click", () => {
+    scrollToTop();
+});
+
+
+
 let currentIndex = 0;
     let autoSlideInterval;
 

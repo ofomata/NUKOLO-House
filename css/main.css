@@ -5,6 +5,27 @@
     box-sizing: border-box;
 }
 
+.top-btn{
+    color: #F7F7F7;
+    background: #243455;
+    padding: 5px;
+    position: fixed;
+    right: 5px;
+    bottom: 30px;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: all .4s;
+    cursor: pointer;
+    outline: none;
+    border: none;
+}
+
+.top-btn:hover{
+    background: #133b8d;
+}
+
+
 body{
     background: #F7F7F7;
 }
@@ -609,6 +630,10 @@ form input{
 }
 
 @media (min-width: 920px) {
+    .top-btn{
+        font-size: 18px;
+    }
+    
     nav{
         transform: translateX(0);
         position: unset;
