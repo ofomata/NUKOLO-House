@@ -27,10 +27,95 @@
     background: #133b8d;
 }
 
+body.index-body{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), url(/image/contact\ us\ header.jpg);
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
-body{
+.intro-page{
+    text-align: center;
+    margin-top: 32px;
+}
+
+.intro-page{
+    opacity: 0;
+    animation: fadeIn 2.5s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/*.scale-in {
+    margin-left: -100%;
+    animation: slideInLeft 1.5s ease-in-out forwards;
+}
+
+@keyframes slideInLeft {
+    from {
+        margin-left: -100%;
+        opacity: 0;
+    }
+    to {
+        margin-left: 0;
+        opacity: 1;
+    }
+}
+add scale in class to html if you change your mind
+*/
+
+.intro-page h1{
+    font-family: 'Playfair Display', serif;
+    color: #FACD3D;
+    font-size: 55px;
+    margin-bottom: 32px;
+    letter-spacing: 10px;
+    font-weight: bold;
+}
+
+.index-logo img{
+    width: 250px;
+    margin-bottom: 32px;
+}
+
+.intro{
+    color: #F7F7F7;
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+.home-link{
+    text-decoration: none;
+    font-size: 16px;
+    border: 2px solid #FACD3D;
+    color: #F7F7F7;
+    padding: 12px 32px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+}
+
+.home-link:hover{
+    border: 2px solid #F7F7F7;
+    color: #FACD3D;
+    transition: .5s;
+}
+
+body.home-body{
     background: #F7F7F7;
 }
+
 header{
     background: #F7F7F7;
     position: sticky;
@@ -191,7 +276,7 @@ nav{
 }
 
 .slide1{
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ 44\ \(2\).jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slider\ trial.jpg);
 }
 .slide2{
     background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(/image/slide\ house.JPG);

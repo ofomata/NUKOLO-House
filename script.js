@@ -30,7 +30,7 @@ function scrollToTop() {
         if (window.scrollY === 0) {
             clearInterval(scrollInterval);
         } else {
-            window.scrollBy(0, -10);
+            window.scrollBy(0, -15);
         }
     }, 16);
 }
