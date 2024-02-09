@@ -891,6 +891,18 @@ form input{
         margin-bottom: 32px;
     }
 
+    .membership-box{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 16px;
+    }
+
+    .plans{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 16px;
+    }
+
     /*.sub-hero{
         display: flex;
         justify-content: space-between;
@@ -1116,6 +1128,16 @@ form input{
 
     .membership-hero{
         height: 90vh;
+    }
+
+    .membership-box{
+        margin-top: 50px;
+    }
+
+    .plans{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 16px;
     }
 }
 
