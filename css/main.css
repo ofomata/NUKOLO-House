@@ -247,6 +247,7 @@ nav{
 .cta-btn-house:hover{
     color: #000000;
     background: #fff;
+    transition: .5s;
 }
 
 #prev, 
@@ -289,7 +290,9 @@ nav{
 }
 
 .container {
-    margin: 60px 32px 0 32px;
+    margin-top: 60px;
+    padding-left: 32px;
+    padding-right: 32px;
 }
 
 .no-space{
@@ -677,7 +680,7 @@ form input{
 
 .connect-item img{
     width: 100%;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
     transition: filter 0.3s ease-in-out;
 }
@@ -691,7 +694,7 @@ form input{
     position: absolute;
     top: 50%;
     left: 50%;
-    width: 100%;
+    width: calc(100% - 16px);
     text-align: center;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -707,6 +710,7 @@ form input{
 
 .hover-text p{
     color: #F7F7F7;
+    font-size: 14px;
 }
 
 .connect-item:hover img {
@@ -736,6 +740,55 @@ form input{
     background: unset;
     color: #000000;
     transition: .5s;
+}
+
+@media (min-width: 768px) {
+    .sub-hero{
+        display: grid;
+        grid-template-columns: auto auto;
+        gap: 32px;
+    }
+
+    .no-space{
+        margin-left: unset;
+        margin-right: unset;
+    }
+
+    .hover-img{
+        margin-left: unset;
+        margin-right: unset;
+    }
+
+    .connect-container{
+        display: grid;
+        grid-template-columns: auto auto;
+        column-gap: 32px;
+    }
+
+    .connect-item{
+        margin: unset;
+        margin-bottom: 32px;
+    }
+
+    /*.sub-hero{
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-top: 50px;
+        margin-bottom: 80px;
+    }
+
+    .connect-container{
+        display: grid;
+        grid-template-columns: auto auto auto;
+        column-gap: 85px;
+    }
+
+    .connect-item{
+    margin: 32px auto;
+    position: relative;
+}
+    */
 }
 
 @media (min-width: 920px) {
@@ -924,12 +977,11 @@ form input{
     .connect-container{
         display: grid;
         grid-template-columns: auto auto auto;
-        column-gap: 85px;
     }
 
     .connect-item{
         margin: unset;
-        margin-bottom: 16px;
+        margin-bottom: 32px;
     }
 
     .menu-list{
