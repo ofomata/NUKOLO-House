@@ -907,6 +907,129 @@ form input{
     margin-bottom: 16px;
 }
 
+/*CONTACT PAGE*/
+
+.contact-page-hero{
+    background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/image/contact\ bg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-page-hero h1{
+    color: #F7F7F7;
+    font-family: 'Playfair Display', serif;
+}
+
+.left-angle h1{
+    font-size: 20px;
+}
+
+.left-angle p{
+    margin: 32px auto;
+    font-size: 14px;
+}
+
+.contact-custom-form{
+    margin-bottom: 40px;
+}
+
+.contact-custom-form input{
+    display: block;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 16px 12px;
+    outline: none;
+    border: none;
+    background: #f8e4a3;
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.contact-custom-form input::placeholder,
+.contact-custom-form textarea::placeholder{
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+}
+
+.contact-custom-form textarea{
+    display: block;
+    margin-bottom: 16px;
+    width: 100%;
+    padding: 16px 12px;
+    outline: none;
+    border: none;
+    background: #f8e4a3;
+    color: #000000;
+    font-weight: bold;
+    font-style: italic;
+    resize: none;
+}
+
+.contact-btn{
+    background: #FACD3D;
+    padding: 12px 20px;
+    outline: none;
+    border: none;
+    color: #F7F7F7;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+.contact-btn:hover{
+    background: unset;
+    color: #000000;
+    transition: .5s;
+}
+
+.right-angle h1{
+    font-size: 20px;
+    margin: 32px auto;
+}
+
+.right-angle p{
+    font-size: 14px;
+}
+
+.contact-info p{
+    line-height: 2;
+}
+
+.contact-info h3{
+    margin: 18px auto;
+    font-size: 14px;
+}
+
+.contact-opt{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-opt i{
+    color: #1877F2;
+    font-size: 22px;
+}
+
+.map-container {
+    width: 100%;
+    height: 400px;
+    margin: 40px auto;
+}
+  
+.map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
 @media (min-width: 768px) {
     .sub-hero{
         display: grid;
@@ -1101,7 +1224,7 @@ form input{
         text-align: center;
     }
 
-    form input,
+    #newsletterform input,
     .news-btn{
         width: 50%;
         transform: translateX(50%);
@@ -1229,6 +1352,24 @@ form input{
         font-size: 14px;
     }
 
+    /*CONTACT PAGE*/
+
+    .contact-page-hero{
+        height: 90vh;
+    }
+
+    .contact-page{
+        display: flex;
+        align-items: first baseline;
+        gap: 32px;
+    }
+
+    .right-angle{
+        flex-basis: 60%;
+    }
+    .left-angle{
+        flex-basis: 100%;
+    }
     
 }
 

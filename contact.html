@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="image/Main logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Reem+Kufi:wght@400..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://kit.fontawesome.com/04f49d956a.js" crossorigin="anonymous"></script>
+    <title>Nukolo House</title>
+</head>
+<body class="home-body">
+    <header>
+        <div class="wrapper">
+            <a href="index.html" class="logo"><img src="image/Main_logo-removebg-preview.png" alt="Nukolo House"></a>
+
+            <nav>
+                <ul>
+                    <li><a href="home.html">HOME</a></li>
+                    <li><a href="index.html">SHOP</a></li>
+                    <li><a href="index.html">ABOUT US</a></li>
+                    <li><a href="contact.html">CONTACT</a></li>
+                    <li><a href="index.html">COMMUNITY</a></li>
+                    <li><a href="membership.html">MEMBERSHIP</a></li>
+                </ul>
+            </nav>
+
+            <div class="home-actions">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-solid fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+            </div>
+
+            <div class="menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="contact-page-hero">
+        <h1>CONTACT US</h1>
+    </div>
+
+    <div class="container">
+        <div class="contact-page">
+            <div class="left-angle">
+                <h1>Write Us</h1>
+                <p>
+                    "Compose your thoughts, express your inquiries – 
+                    we're eager to hear from you. Reach out and write 
+                    to us; your words matter, and your message is the 
+                    heartbeat of our community."
+                </p>
+    
+                <form action="" class="contact-custom-form">
+                    <input type="text" placeholder="Your Name">
+                    <input type="email" placeholder="Your Email">
+                    <textarea cols="30" rows="10" placeholder="Your Message"></textarea>
+    
+                    <button class="contact-btn" type="submit">SEND</button>
+                </form>
+            </div>
+    
+            <div class="right-angle">
+                <h1>Locations</h1>
+                <p>
+                    "Spanning across borders, our presence echoes in diverse locales, 
+                    uniting us in a global conversation. With roots embedded in 
+                    communities worldwide, our shared journey knows no bounds. 
+                    Connect with us from any corner of the globe, as we bridge 
+                    distances and embrace the richness of our collective voice."
+                </p>
+                <div class="contact-info">
+                    <div class="address">
+                        <div class="contact-opt">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <div>
+                                <h3>ADDRESS</h3>
+                            </div>
+                        </div>
+                        <P>188 West 21st Street, <br> Suite 721 New York, <br> NY 10010</P>
+                    </div>
+                    <div class="phone">
+                        <div class="contact-opt">
+                            <i class="fa-solid fa-phone"></i>
+                            <div>
+                                <h3>PHONES</h3>
+                            </div>
+                        </div>
+                        <P>Phone: +95 (0) 123 456 789</P>
+                        <P>Cell: +95 (0) 123 456 789</P>
+                    </div>
+                    <div class="mail">
+                        <div class="contact-opt">
+                            <i class="fa-solid fa-envelope"></i>
+                            <div>
+                                <h3>EMAILS</h3>
+                            </div>
+                        </div>
+                        <P>peoplesvoice@people.com</P>
+                        <P>voicepeople@gmail.com</P>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2624.267166415731!2d2.294351915525765!3d48.858844514341646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x644ac7a4e020688e!2sEiffel%20Tower!5e0!3m2!1sen!2sus!4v1644000738329!5m2!1sen!2sus" frameborder="0" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <div class="container">
+        <button class="top-btn">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <div class="newsletter">
+                <div class="footer-logo">
+                    <img src="image/Main_logo-removebg-preview.png" alt="">
+                </div>
+        
+                <form action="" id="newsletterform">
+                    <p class="form-info">GET THE LATEST FROM NUKOLO HOUSE</p>
+        
+                    <input type="email" class="email" placeholder="Sign up for our delicious newsletter" required>
+                    <button type="submit" class="news-btn">Join Newsletter</button>
+                    <div class="loading-indicator">Subscribing...</div>
+                    <div id="errorMessage" class="error-message"></div>
+                </form>
+
+                <div id="subscription-result"></div>
+            </div>
+
+            <div class="important-links">
+                <div class="about-link">
+                    <h4>About</h4>
+                    <div class="about-link-sub">
+                        <p>OUR STORY</p>
+                        <p>OUR COMMUNITY</p>
+                        <p>SUBSCRIPTION</p>
+                    </div>
+                </div>
+                <div class="help-link">
+                    <h4>Help</h4>
+                    <div class="about-link-sub">
+                        <p>CONTACT US</p>
+                        <p>FAQS</p>
+                        <p>ORDER STATUS</p>
+                    </div>
+                </div>
+                <div class="social-link">
+                    <h4>Connect</h4>
+                    <div class="social-link-sub">
+                        <a href = "#"><i class="fa-brands fa-instagram"></i> INSTAGRAM</a>
+                        <a href = "#"><i class="fa-brands fa-facebook-f"></i> FACEBOOK</a>
+                        <a href = "#"><i class="fa-brands fa-x-twitter"></i> X</a>
+                        <a href = "#"><i class="fa-brands fa-youtube"></i> YOUTUBE</a>
+                    </div>
+                </div>
+            </div>
+    
+            <hr class="footer-hr">
+    
+            <div class="other-links">
+                <a href="#">PRIVACY POLICY</a>
+                <a href="#">TERMS OF SALE</a>
+                <a href="#">TERMS OF USE</a>
+            </div>
+    
+            <div class="ender">
+                <small>© NUKOLO HOUSE 2024</small>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
