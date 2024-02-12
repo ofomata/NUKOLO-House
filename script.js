@@ -42,44 +42,44 @@ toTop.addEventListener("click", () => {
 
 
 let currentIndex = 0;
-    let autoSlideInterval;
+let autoSlideInterval;
 
-    const slides = document.querySelectorAll('.slide');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
-    const sliderContainer = document.getElementById('slider-container');
+const slides = document.querySelectorAll('.slide');
+const prevButton = document.getElementById('prev');
+const nextButton = document.getElementById('next');
+const sliderContainer = document.getElementById('slider-container');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.style.display = 'block';
-                setTimeout(() => slide.style.opacity = '1', 10);
-            } else {
-                slide.style.opacity = '0';
-                setTimeout(() => slide.style.display = 'none', 1);
-            }
-        });
-    }
+function showSlide(index) {
+    slides.forEach((slide, i) => {
+        if (i === index) {
+            slide.style.display = 'block';
+            setTimeout(() => slide.style.opacity = '1', 10);
+        } else {
+            slide.style.opacity = '0';
+            setTimeout(() => slide.style.display = 'none', 1);
+        }
+    });
+}
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }
+function nextSlide() {
+    currentIndex = (currentIndex + 1) % slides.length;
+    showSlide(currentIndex);
+}
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    }
+function prevSlide() {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    showSlide(currentIndex);
+}
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
-    }
+function startAutoSlide() {
+    autoSlideInterval = setInterval(nextSlide, 5000);
+}
 
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
+function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
 
-    if (window.location.pathname === "/home.html") {
+if (window.location.pathname === "/home.html") {
     sliderContainer.addEventListener('mouseover', stopAutoSlide);
     sliderContainer.addEventListener('mouseout', startAutoSlide);
 
@@ -90,83 +90,114 @@ let currentIndex = 0;
     // Initial display
     showSlide(currentIndex);
     startAutoSlide();
+}
 
+    
+document.addEventListener('DOMContentLoaded', function () {
+    const formElement = document.getElementById("newsletterform");
+    const subscribeBtn = document.querySelector(".news-btn");
+    const loadingIndicator = document.querySelector(".loading-indicator");
+    const errorMessageDiv = document.getElementById("errorMessage");
+    const resultDiv = document.getElementById("subscription-result");
+    const emailInput = document.querySelector(".email");
+
+    subscribeBtn.addEventListener("click", (event) => {
+        console.log("Event listener triggered!");
+        // Prevent default form submission
+        event.preventDefault();
+
+        // Hide previous error message
+        errorMessageDiv.textContent = "";
+
+        // Display loading indicator
+        loadingIndicator.style.display = "block";
+
+        // Client-side validation
+        if (!formElement.checkValidity()) {
+            // Display error message
+            errorMessageDiv.textContent = "Please enter a valid email address.";
+
+            // Hide loading indicator
+            loadingIndicator.style.display = "none";
+            return;
+        }
+
+        // Simulate asynchronous subscription
+        setTimeout(() => {
+            // Simulate a successful subscription
+            resultDiv.textContent = "Welcome aboard! Your subscription brings a warm and flavorful touch to our coffee family.";
+
+            // Clear the input field
+            emailInput.value = "";
+
+            // Hide loading indicator
+            loadingIndicator.style.display = "none";
+
+            // Clear the success message after 3 seconds (adjust the time as needed)
+            setTimeout(() => {
+                resultDiv.textContent = "";
+            }, 4000);
+        }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
+    });
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const gridItems = document.querySelectorAll('.connect-item');
+    
+    gridItems.forEach(function (item) {
+        item.addEventListener('mouseover', function () {
+        showText(item);
+        });
+    
+        item.addEventListener('mouseout', function () {
+        hideText(item);
+        });
+    });
+    });
+    
+    function showText(element) {
+    element.querySelector('.hover-text').style.opacity = 1;
+    }
+    
+    function hideText(element) {
+    element.querySelector('.hover-text').style.opacity = 0;
     }
 
     
-    document.addEventListener('DOMContentLoaded', function () {
-        const formElement = document.getElementById("newsletterform");
-        const subscribeBtn = document.querySelector(".news-btn");
-        const loadingIndicator = document.querySelector(".loading-indicator");
-        const errorMessageDiv = document.getElementById("errorMessage");
-        const resultDiv = document.getElementById("subscription-result");
-        const emailInput = document.querySelector(".email");
     
-        subscribeBtn.addEventListener("click", (event) => {
-            console.log("Event listener triggered!");
-            // Prevent default form submission
-            event.preventDefault();
-    
-            // Hide previous error message
-            errorMessageDiv.textContent = "";
-    
-            // Display loading indicator
-            loadingIndicator.style.display = "block";
-    
-            // Client-side validation
-            if (!formElement.checkValidity()) {
-                // Display error message
-                errorMessageDiv.textContent = "Please enter a valid email address.";
-    
-                // Hide loading indicator
-                loadingIndicator.style.display = "none";
-                return;
+const faqButtons = document.querySelectorAll(".question-container");
+
+let openAnswer = null;
+
+faqButtons.forEach((faqButton) => {
+    const answer = faqButton.nextElementSibling;
+    const icon = faqButton.querySelector(".fa-plus");
+
+    faqButton.addEventListener("click", () => {
+        if (openAnswer && openAnswer !== answer) {
+            // Close the currently open answer
+            openAnswer.style.display = "none";
+            const openIcon = openAnswer.previousElementSibling.querySelector(".fa-minus");
+            if (openIcon) {
+                openIcon.classList.replace("fa-minus", "fa-plus");
             }
-    
-            // Simulate asynchronous subscription
-            setTimeout(() => {
-                // Simulate a successful subscription
-                resultDiv.textContent = "Welcome aboard! Your subscription brings a warm and flavorful touch to our coffee family.";
-    
-                // Clear the input field
-                emailInput.value = "";
-    
-                // Hide loading indicator
-                loadingIndicator.style.display = "none";
-    
-                // Clear the success message after 3 seconds (adjust the time as needed)
-                setTimeout(() => {
-                    resultDiv.textContent = "";
-                }, 4000);
-            }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
-        });
+        }
+
+        if (answer.style.display === "none" || answer.style.display === "") {
+            // Open the clicked answer
+            answer.style.display = "block";
+            icon.classList.replace("fa-plus", "fa-minus");
+            openAnswer = answer;
+        } else {
+            // Close the clicked answer
+            answer.style.display = "none";
+            icon.classList.replace("fa-minus", "fa-plus");
+            openAnswer = null;
+        }
     });
+});
 
-
-    document.addEventListener('DOMContentLoaded', function () {
-        const gridItems = document.querySelectorAll('.connect-item');
-      
-        gridItems.forEach(function (item) {
-          item.addEventListener('mouseover', function () {
-            showText(item);
-          });
-      
-          item.addEventListener('mouseout', function () {
-            hideText(item);
-          });
-        });
-      });
-      
-      function showText(element) {
-        element.querySelector('.hover-text').style.opacity = 1;
-      }
-      
-      function hideText(element) {
-        element.querySelector('.hover-text').style.opacity = 0;
-      }
-      
-    
-    
     
 
 
