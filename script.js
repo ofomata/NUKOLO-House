@@ -198,6 +198,20 @@ faqButtons.forEach((faqButton) => {
     });
 });
 
+
+const instagramBtn = document.querySelector(".hover-text");
+const postCloseBtn = document.querySelector(".close-post");
+const post = document.querySelector(".insta-post");
+
+instagramBtn.addEventListener("click", () => {
+    post.style.display = "block"
+});
+
+postCloseBtn.addEventListener("click", () => {
+    post.style.display = "none"
+})
+
+
     
 
 

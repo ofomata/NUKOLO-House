@@ -702,6 +702,12 @@ form input{
     transition: opacity 0.3s ease-in-out;
 }
 
+.hover-text i{
+    color: #F7F7F7;
+    font-size: 32px;
+    cursor: pointer;
+}
+
 .hover-text h4{
     font-family: 'Lato', sans-serif;
     margin-bottom: 10px;
@@ -1029,6 +1035,88 @@ form input{
     height: 100%;
     border: 0;
 }
+
+
+
+.insta-post {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    z-index: 9999; /* Adjust this value as needed */
+    background-color: white; /* Optional: Add background color */
+    padding: 20px;
+    border: 1px solid #ddd; /* Optional: Add border */
+    overflow-y: auto;
+}
+
+.left-post img{
+    width: 100%;
+}
+
+.right-post{
+    margin: 32px auto;
+}
+
+.insta-head a{
+    text-decoration: none;
+    color: #000000;
+}
+
+.insta-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.page-name i{
+    background: grey;
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.page-name{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.page-name p{
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.page-name small{
+    font-size: 12px;
+}
+
+.close-post{
+    background: unset;
+    outline: none;
+    border: none;
+}
+
+.post{
+    margin-top: 32px;
+    font-size: 14px;
+}
+
+.post-last{
+    margin-top: 18px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.post-last a{
+    text-decoration: none;
+    color: #000000;
+}
+
 
 @media (min-width: 768px) {
     .sub-hero{
@@ -1369,6 +1457,12 @@ form input{
     }
     .left-angle{
         flex-basis: 100%;
+    }
+
+    .insta-post{
+        left: 50%;
+        transform: translate(-50%);
+        width: 30%;
     }
     
 }
