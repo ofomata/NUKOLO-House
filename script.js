@@ -79,6 +79,7 @@ let currentIndex = 0;
         clearInterval(autoSlideInterval);
     }
 
+    if (window.location.pathname === "/home.html") {
     sliderContainer.addEventListener('mouseover', stopAutoSlide);
     sliderContainer.addEventListener('mouseout', startAutoSlide);
 
@@ -90,8 +91,9 @@ let currentIndex = 0;
     showSlide(currentIndex);
     startAutoSlide();
 
+    }
 
-
+    
     document.addEventListener('DOMContentLoaded', function () {
         const formElement = document.getElementById("newsletterform");
         const subscribeBtn = document.querySelector(".news-btn");
@@ -101,6 +103,7 @@ let currentIndex = 0;
         const emailInput = document.querySelector(".email");
     
         subscribeBtn.addEventListener("click", (event) => {
+            console.log("Event listener triggered!");
             // Prevent default form submission
             event.preventDefault();
     
