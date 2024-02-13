@@ -199,6 +199,8 @@ faqButtons.forEach((faqButton) => {
 });
 
 
+
+
 if (window.location.pathname === "/home.html") {
 const instagramBtn = document.querySelector(".hover-text");
 const postCloseBtn = document.querySelector(".close-post");
