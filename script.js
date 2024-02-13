@@ -199,6 +199,7 @@ faqButtons.forEach((faqButton) => {
 });
 
 
+if (window.location.pathname === "/home.html") {
 const instagramBtn = document.querySelector(".hover-text");
 const postCloseBtn = document.querySelector(".close-post");
 const post = document.querySelector(".insta-post");
@@ -211,8 +212,23 @@ postCloseBtn.addEventListener("click", () => {
     post.style.display = "none"
 })
 
+}
 
-    
+
+
+
+const passwordLink = document.querySelector(".forgot-password-link");
+const passwordModal = document.querySelector(".recovery-password-modal");
+const closeModal = document.querySelector(".close-password");
+
+passwordLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    passwordModal.style.display = "block";
+});
+
+closeModal.addEventListener("click", () => {
+    passwordModal.style.display = "none";
+});
 
 
 
