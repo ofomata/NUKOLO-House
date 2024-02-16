@@ -1152,6 +1152,20 @@ p.sign-info{
     display: block;
     background: #F7F7F7;
     border: 1px solid #000000;
+    padding: 12px 32px 12px 16px;
+}
+
+.password-check{
+    position: relative;
+}
+
+.fa-eye,
+.fa-eye-slash{
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    font-size: 12px;
+    cursor: pointer;
 }
 
 .forgot-password{
@@ -1234,6 +1248,7 @@ p.sign-info{
     font-size: 12px;
     display: block;
     margin: 0 auto;
+    cursor: pointer;
 }
 
 .close-password:hover{

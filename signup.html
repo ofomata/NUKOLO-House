@@ -54,9 +54,13 @@
                     <input type="email" id="login-email" name="email" required>
                     
                     <label for="password">PASSWORD*</label>
-                    <input type="password" id="login-password" name="password" required>
+                    <div class="password-check">
+                        <input type="password" id="login-password" class="signup-password" name="password" required>
+                        <i class="fa-regular fa-eye"></i>
+                    </div>
+                    <p class="requirement"></p>
                     
-                    <button class="login-btn" type="submit">Register</button>
+                    <button class="login-btn" type="submit" id="signup-btn">Register</button>
                 </form>
     
                 <div class="signup">

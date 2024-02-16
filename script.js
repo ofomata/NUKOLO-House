@@ -218,7 +218,7 @@ postCloseBtn.addEventListener("click", () => {
 
 
 
-
+if (window.location.pathname === "/login.html") {
 const passwordLink = document.querySelector(".forgot-password-link");
 const passwordModal = document.querySelector(".recovery-password-modal");
 const closeModal = document.querySelector(".close-password");
@@ -231,7 +231,20 @@ passwordLink.addEventListener("click", (e) => {
 closeModal.addEventListener("click", () => {
     passwordModal.style.display = "none";
 });
+}
 
+//Password Validation
 
+const passwordInput = document.getElementById("login-password");
+const eyeIcon = document.querySelector(".fa-eye");
+
+eyeIcon.addEventListener("click", () => {
+    passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+    if (passwordInput.type === "password") {
+        eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+    } else {
+        eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+    }
+});
 
 
