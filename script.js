@@ -233,6 +233,7 @@ closeModal.addEventListener("click", () => {
 });
 }
 
+
 //Password Validation
 
 const passwordInput = document.getElementById("login-password");
