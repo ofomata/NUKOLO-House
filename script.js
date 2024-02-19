@@ -234,6 +234,8 @@ closeModal.addEventListener("click", () => {
 }
 
 
+
+if (window.location.pathname === "/login.html" || window.location.pathname === "/signup.html") {
 //Password Validation
 
 const passwordInput = document.getElementById("login-password");
@@ -248,4 +250,4 @@ eyeIcon.addEventListener("click", () => {
     }
 });
 
-
+}
