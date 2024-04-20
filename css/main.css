@@ -1,10 +1,11 @@
-*{
+ *{
     font-family: "Lato", sans-serif;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
 }
 
+/*
 .top-btn{
     color: #F7F7F7;
     background: #243455;
@@ -74,7 +75,7 @@ body.index-body{
     }
 }
 add scale in class to html if you change your mind
-*/
+
 
 .intro-page h1{
     font-family: 'Playfair Display', serif;
@@ -749,7 +750,7 @@ form input{
     transition: .5s;
 }
 
-/*MEMBERSHIP PAGE*/
+/*MEMBERSHIP PAGE
 
 .membership-hero{
     background-image: url(/image/example.avif);
@@ -913,7 +914,7 @@ form input{
     margin-bottom: 16px;
 }
 
-/*CONTACT PAGE*/
+/*CONTACT PAGE
 
 .contact-page-hero{
     background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(/image/contact\ bg.jpg);
@@ -1045,10 +1046,10 @@ form input{
     left: 0;
     height: 100vh;
     min-width: 80%;
-    z-index: 9999; /* Adjust this value as needed */
-    background-color: white; /* Optional: Add background color */
+    z-index: 9999; /* Adjust this value as needed 
+    background-color: white;  Optional: Add background color 
     padding: 20px;
-    border: 1px solid #ddd; /* Optional: Add border */
+    border: 1px solid #ddd;  Optional: Add border 
     overflow-y: auto;
 }
 
@@ -1120,7 +1121,7 @@ form input{
 
 
 
-/*ACCOUNT PAGE*/
+/*ACCOUNT PAGE
 
 .sign-in-content h5{
     font-size: 25px;
@@ -1287,7 +1288,7 @@ button.login-btn{
 }
 
 
-/*ABOUT US PAGE*/
+/*ABOUT US PAGE
 
 .about-hero{
     background-image: url(/image/about\ page.jpg);
@@ -1369,7 +1370,7 @@ button.login-btn{
     font-weight: bold;
 }
 
-/*COMMUNITY PAGE*/
+/*COMMUNITY PAGE
 
 .community-hero{
     background: #A0AECD;
@@ -1421,7 +1422,7 @@ button.login-btn{
         margin-bottom: 32px;
     }
 
-    /*MEMBERSHIP PAGE*/
+    /*MEMBERSHIP PAGE
 
     .membership-box{
         display: grid;
@@ -1435,7 +1436,7 @@ button.login-btn{
         column-gap: 16px;
     }
 
-    /*ABOUT PAGE*/
+    /*ABOUT PAGE
 
     .specialty{
         display: grid;
@@ -1472,7 +1473,7 @@ button.login-btn{
     margin: 32px auto;
     position: relative;
 }
-    */
+    
 }
 
 @media (min-width: 920px) {
@@ -1558,7 +1559,7 @@ button.login-btn{
         margin-left: unset;
         margin-right: unset;
     }
-    */
+    
 
     .no-space,
     .right-col
@@ -1582,7 +1583,7 @@ button.login-btn{
     /*.sub-hero img{
         width: 100%;
         height: 350px;
-    }*/
+    }
 
     .sub-hero-one{
         text-align: unset;
@@ -1596,7 +1597,7 @@ button.login-btn{
     .footer{
         margin-top: 80px;
     }
-    */
+    
 
     .connect-link{
         margin-bottom: 80px;
@@ -1681,7 +1682,7 @@ button.login-btn{
         align-items: center;
     }
 
-    /*MEMBERSHIP PAGE*/
+    /*MEMBERSHIP PAGE
 
     .membership-hero{
         height: 90vh;
@@ -1734,7 +1735,7 @@ button.login-btn{
         font-size: 14px;
     }
 
-    /*CONTACT PAGE*/
+    /*CONTACT PAGE
 
     .contact-page-hero{
         height: 90vh;
@@ -1761,7 +1762,7 @@ button.login-btn{
         width: 30%;
     }
 
-    /*ACCOUNT PAGE*/
+    /*ACCOUNT PAGE
 
     .signin-container {
         display: flex;
@@ -1787,7 +1788,7 @@ button.login-btn{
         padding-top: 100px;
     }
 
-    /*ABOUT PAGE*/
+    /*ABOUT PAGE
 
     .about-hero{
         height: 90vh;
@@ -1807,7 +1808,7 @@ button.login-btn{
         column-gap: 32px;
     }
 
-    /*COMMUNITY PAGE*/
+    /*COMMUNITY PAGE
 
     .community-box{
         display: grid;
