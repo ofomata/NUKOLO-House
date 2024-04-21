@@ -5,6 +5,123 @@
     box-sizing: border-box;
 }
 
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F7F7F7;
+}
+
+.wrapper{
+    width: 100%;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.logo img{
+    width: 50px;
+    height: auto;
+}
+
+.content {
+    background: #d7e1f5;
+    margin: 32px 60px;
+    border-radius: 12px;
+    padding: 25px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+.content-left h1{
+    margin: 16px auto;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    font-size: 36px;
+}
+
+.cta-btn{
+    margin: 32px auto;
+}
+
+.cta-btn a{
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    padding: 17px;
+    color: #243455;
+    font-weight: 600;
+    font-size: 16px;
+    text-decoration: none
+}
+
+.cta-btn a:hover{
+    color: #6E6E6E;
+    transition: .5s;
+}
+
+.shop-link{
+    display: flex;
+    align-items: center;
+    margin: 50px auto;
+}
+
+.shop-link a{
+    text-decoration: none;
+    color: #000000;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.shop-link svg{
+    width: 30px;
+    transition: transform .5s;
+}
+
+.shop-link:hover svg{
+    transform: translateX(15px);
+}
+
+.content-right img{
+    width: 100%;
+    margin-top: 32px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 10px rgba(1, 1, 1, 1);
+}
+
+@media (min-width: 768px) {
+    .content{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px;
+    }
+    
+    .content-right img{
+        height: 350px;
+        margin-top: unset;
+    }
+
+    /* .content-left h1{
+        font-size: 40px;
+    }
+
+    .cta-btn a{
+        font-size: 17px;
+    } */
+}
+
+/* .content{
+    background-image: url(/image/aphotos\ \(1\).JPG);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 50vh;
+} */
+
 /*
 .top-btn{
     color: #F7F7F7;
