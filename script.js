@@ -1,3 +1,4 @@
+// Open and Close Menu for Mobile Device
 
 const menu = document.querySelector(".fa-bars");
 const nav = document.querySelector("nav");
