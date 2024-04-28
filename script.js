@@ -14,6 +14,37 @@ menu.addEventListener("click", () => {
 });
 
 
+// Newsletter Form Validation
+
+// const newsletterForm = document.querySelector(".newsletter-form");
+const newsletterInput = document.querySelector("#newsletter-email");
+const newsletterButton = document.querySelector(".newsletter-button");
+const newsletterError = document.querySelector(".error-message");
+
+newsletterButton.addEventListener("click", (e) => {
+
+    let isValid = true;
+    let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,}$/;
+
+    if (newsletterInput.value === "") {
+        newsletterError.textContent = "Email is Required";
+        isValid = false;
+    } else if (!newsletterInput.value.match(pattern)) {
+        newsletterError.textContent = "Valid Email is Required";
+        isValid = false;
+    } else {
+        newsletterError.textContent = "";
+    }
+
+    if (!isValid) {
+        e.preventDefault();
+    }
+});
+
+
+
+
+
 const toTop = document.querySelector(".top-btn");
 
 window.addEventListener("scroll", checkHeight);
@@ -94,53 +125,53 @@ if (window.location.pathname === "/home.html") {
 }
 
     
-document.addEventListener('DOMContentLoaded', function () {
-    const formElement = document.getElementById("newsletterform");
-    const subscribeBtn = document.querySelector(".news-btn");
-    const loadingIndicator = document.querySelector(".loading-indicator");
-    const errorMessageDiv = document.getElementById("errorMessage");
-    const resultDiv = document.getElementById("subscription-result");
-    const emailInput = document.querySelector(".email");
+// document.addEventListener('DOMContentLoaded', function () {
+//     const formElement = document.getElementById("newsletterform");
+//     const subscribeBtn = document.querySelector(".news-btn");
+//     const loadingIndicator = document.querySelector(".loading-indicator");
+//     const errorMessageDiv = document.getElementById("errorMessage");
+//     const resultDiv = document.getElementById("subscription-result");
+//     const emailInput = document.querySelector(".email");
 
-    subscribeBtn.addEventListener("click", (event) => {
-        console.log("Event listener triggered!");
-        // Prevent default form submission
-        event.preventDefault();
+//     subscribeBtn.addEventListener("click", (event) => {
+//         console.log("Event listener triggered!");
+//         // Prevent default form submission
+//         event.preventDefault();
 
-        // Hide previous error message
-        errorMessageDiv.textContent = "";
+//         // Hide previous error message
+//         errorMessageDiv.textContent = "";
 
-        // Display loading indicator
-        loadingIndicator.style.display = "block";
+//         // Display loading indicator
+//         loadingIndicator.style.display = "block";
 
-        // Client-side validation
-        if (!formElement.checkValidity()) {
-            // Display error message
-            errorMessageDiv.textContent = "Please enter a valid email address.";
+//         // Client-side validation
+//         if (!formElement.checkValidity()) {
+//             // Display error message
+//             errorMessageDiv.textContent = "Please enter a valid email address.";
 
-            // Hide loading indicator
-            loadingIndicator.style.display = "none";
-            return;
-        }
+//             // Hide loading indicator
+//             loadingIndicator.style.display = "none";
+//             return;
+//         }
 
-        // Simulate asynchronous subscription
-        setTimeout(() => {
-            // Simulate a successful subscription
-            resultDiv.textContent = "Welcome aboard! Your subscription brings a warm and flavorful touch to our coffee family.";
+//         // Simulate asynchronous subscription
+//         setTimeout(() => {
+//             // Simulate a successful subscription
+//             resultDiv.textContent = "Welcome aboard! Your subscription brings a warm and flavorful touch to our coffee family.";
 
-            // Clear the input field
-            emailInput.value = "";
+//             // Clear the input field
+//             emailInput.value = "";
 
-            // Hide loading indicator
-            loadingIndicator.style.display = "none";
+//             // Hide loading indicator
+//             loadingIndicator.style.display = "none";
 
-            // Clear the success message after 3 seconds (adjust the time as needed)
-            setTimeout(() => {
-                resultDiv.textContent = "";
-            }, 4000);
-        }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
-    });
-});
+//             // Clear the success message after 3 seconds (adjust the time as needed)
+//             setTimeout(() => {
+//                 resultDiv.textContent = "";
+//             }, 4000);
+//         }, 1000); // Simulate a 1-second delay (replace with an actual asynchronous request)
+//     });
+// });
 
 
 document.addEventListener('DOMContentLoaded', function () {
