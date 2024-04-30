@@ -42,87 +42,107 @@ newsletterButton.addEventListener("click", (e) => {
 });
 
 
+// Scroll Preview Content
 
+let scrollContainer = document.querySelector(".coffee-qualities");
+let backBtn = document.getElementById("backbtn");
+let nextBtn = document.getElementById("nextbtn");
 
+scrollContainer.addEventListener("wheel", (e) => {
+    e.preventDefault();
+    scrollContainer.scrollLeft += e.deltaY;
+    scrollContainer.style.scrollBehavior = "auto";
+});
 
-const toTop = document.querySelector(".top-btn");
+nextBtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft += 300;
+});
 
-window.addEventListener("scroll", checkHeight);
-
-function checkHeight() {
-    if (window.scrollY > 200) {
-        toTop.style.display = "flex";
-    } else {
-        toTop.style.display = "none";
-    }
-}
-
-function scrollToTop() {
-    const scrollInterval = setInterval(() => {
-        if (window.scrollY === 0) {
-            clearInterval(scrollInterval);
-        } else {
-            window.scrollBy(0, -15);
-        }
-    }, 16);
-}
-
-toTop.addEventListener("click", () => {
-    scrollToTop();
+backBtn.addEventListener("click", () => {
+    scrollContainer.style.scrollBehavior = "smooth";
+    scrollContainer.scrollLeft -= 300;
 });
 
 
+// const toTop = document.querySelector(".top-btn");
 
-let currentIndex = 0;
-let autoSlideInterval;
+// window.addEventListener("scroll", checkHeight);
 
-const slides = document.querySelectorAll('.slide');
-const prevButton = document.getElementById('prev');
-const nextButton = document.getElementById('next');
-const sliderContainer = document.getElementById('slider-container');
+// function checkHeight() {
+//     if (window.scrollY > 200) {
+//         toTop.style.display = "flex";
+//     } else {
+//         toTop.style.display = "none";
+//     }
+// }
 
-function showSlide(index) {
-    slides.forEach((slide, i) => {
-        if (i === index) {
-            slide.style.display = 'block';
-            setTimeout(() => slide.style.opacity = '1', 10);
-        } else {
-            slide.style.opacity = '0';
-            setTimeout(() => slide.style.display = 'none', 1);
-        }
-    });
-}
+// function scrollToTop() {
+//     const scrollInterval = setInterval(() => {
+//         if (window.scrollY === 0) {
+//             clearInterval(scrollInterval);
+//         } else {
+//             window.scrollBy(0, -15);
+//         }
+//     }, 16);
+// }
 
-function nextSlide() {
-    currentIndex = (currentIndex + 1) % slides.length;
-    showSlide(currentIndex);
-}
+// toTop.addEventListener("click", () => {
+//     scrollToTop();
+// });
 
-function prevSlide() {
-    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-    showSlide(currentIndex);
-}
 
-function startAutoSlide() {
-    autoSlideInterval = setInterval(nextSlide, 5000);
-}
 
-function stopAutoSlide() {
-    clearInterval(autoSlideInterval);
-}
+// let currentIndex = 0;
+// let autoSlideInterval;
 
-if (window.location.pathname === "/home.html") {
-    sliderContainer.addEventListener('mouseover', stopAutoSlide);
-    sliderContainer.addEventListener('mouseout', startAutoSlide);
+// const slides = document.querySelectorAll('.slide');
+// const prevButton = document.getElementById('prev');
+// const nextButton = document.getElementById('next');
+// const sliderContainer = document.getElementById('slider-container');
 
-    // Event listeners
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
+// function showSlide(index) {
+//     slides.forEach((slide, i) => {
+//         if (i === index) {
+//             slide.style.display = 'block';
+//             setTimeout(() => slide.style.opacity = '1', 10);
+//         } else {
+//             slide.style.opacity = '0';
+//             setTimeout(() => slide.style.display = 'none', 1);
+//         }
+//     });
+// }
 
-    // Initial display
-    showSlide(currentIndex);
-    startAutoSlide();
-}
+// function nextSlide() {
+//     currentIndex = (currentIndex + 1) % slides.length;
+//     showSlide(currentIndex);
+// }
+
+// function prevSlide() {
+//     currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+//     showSlide(currentIndex);
+// }
+
+// function startAutoSlide() {
+//     autoSlideInterval = setInterval(nextSlide, 5000);
+// }
+
+// function stopAutoSlide() {
+//     clearInterval(autoSlideInterval);
+// }
+
+// if (window.location.pathname === "/home.html") {
+//     sliderContainer.addEventListener('mouseover', stopAutoSlide);
+//     sliderContainer.addEventListener('mouseout', startAutoSlide);
+
+//     // Event listeners
+//     prevButton.addEventListener('click', prevSlide);
+//     nextButton.addEventListener('click', nextSlide);
+
+//     // Initial display
+//     showSlide(currentIndex);
+//     startAutoSlide();
+// }
 
     
 // document.addEventListener('DOMContentLoaded', function () {
@@ -174,112 +194,110 @@ if (window.location.pathname === "/home.html") {
 // });
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const gridItems = document.querySelectorAll('.connect-item');
+// const gridItems = document.querySelectorAll('.community-image-container');
     
-    gridItems.forEach(function (item) {
-        item.addEventListener('mouseover', function () {
-        showText(item);
-        });
-    
-        item.addEventListener('mouseout', function () {
-        hideText(item);
-        });
-    });
-    });
-    
-    function showText(element) {
-    element.querySelector('.hover-text').style.opacity = 1;
-    }
-    
-    function hideText(element) {
-    element.querySelector('.hover-text').style.opacity = 0;
-    }
+// gridItems.forEach(function (item) {
+//     item.addEventListener('mouseover', function () {
+//         showText(item);
+//     });
+
+//     item.addEventListener('mouseout', function () {
+//         hideText(item);
+//     });
+// });
+
+// function showText(element) {
+//     element.querySelector('.hover-text').style.opacity = 1;
+// }
+
+// function hideText(element) {
+//     element.querySelector('.hover-text').style.opacity = 0;
+// }
 
     
     
-const faqButtons = document.querySelectorAll(".question-container");
+// const faqButtons = document.querySelectorAll(".question-container");
 
-let openAnswer = null;
+// let openAnswer = null;
 
-faqButtons.forEach((faqButton) => {
-    const answer = faqButton.nextElementSibling;
-    const icon = faqButton.querySelector(".fa-plus");
+// faqButtons.forEach((faqButton) => {
+//     const answer = faqButton.nextElementSibling;
+//     const icon = faqButton.querySelector(".fa-plus");
 
-    faqButton.addEventListener("click", () => {
-        if (openAnswer && openAnswer !== answer) {
-            // Close the currently open answer
-            openAnswer.style.display = "none";
-            const openIcon = openAnswer.previousElementSibling.querySelector(".fa-minus");
-            if (openIcon) {
-                openIcon.classList.replace("fa-minus", "fa-plus");
-            }
-        }
+//     faqButton.addEventListener("click", () => {
+//         if (openAnswer && openAnswer !== answer) {
+//             // Close the currently open answer
+//             openAnswer.style.display = "none";
+//             const openIcon = openAnswer.previousElementSibling.querySelector(".fa-minus");
+//             if (openIcon) {
+//                 openIcon.classList.replace("fa-minus", "fa-plus");
+//             }
+//         }
 
-        if (answer.style.display === "none" || answer.style.display === "") {
-            // Open the clicked answer
-            answer.style.display = "block";
-            icon.classList.replace("fa-plus", "fa-minus");
-            openAnswer = answer;
-        } else {
-            // Close the clicked answer
-            answer.style.display = "none";
-            icon.classList.replace("fa-minus", "fa-plus");
-            openAnswer = null;
-        }
-    });
-});
-
-
-
-
-if (window.location.pathname === "/home.html") {
-const instagramBtn = document.querySelector(".hover-text");
-const postCloseBtn = document.querySelector(".close-post");
-const post = document.querySelector(".insta-post");
-
-instagramBtn.addEventListener("click", () => {
-    post.style.display = "block"
-});
-
-postCloseBtn.addEventListener("click", () => {
-    post.style.display = "none"
-})
-
-}
+//         if (answer.style.display === "none" || answer.style.display === "") {
+//             // Open the clicked answer
+//             answer.style.display = "block";
+//             icon.classList.replace("fa-plus", "fa-minus");
+//             openAnswer = answer;
+//         } else {
+//             // Close the clicked answer
+//             answer.style.display = "none";
+//             icon.classList.replace("fa-minus", "fa-plus");
+//             openAnswer = null;
+//         }
+//     });
+// });
 
 
 
-if (window.location.pathname === "/login.html") {
-const passwordLink = document.querySelector(".forgot-password-link");
-const passwordModal = document.querySelector(".recovery-password-modal");
-const closeModal = document.querySelector(".close-password");
 
-passwordLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    passwordModal.style.display = "block";
-});
+// if (window.location.pathname === "/home.html") {
+// const instagramBtn = document.querySelector(".hover-text");
+// const postCloseBtn = document.querySelector(".close-post");
+// const post = document.querySelector(".insta-post");
 
-closeModal.addEventListener("click", () => {
-    passwordModal.style.display = "none";
-});
-}
+// instagramBtn.addEventListener("click", () => {
+//     post.style.display = "block"
+// });
+
+// postCloseBtn.addEventListener("click", () => {
+//     post.style.display = "none"
+// })
+
+// }
 
 
 
-if (window.location.pathname === "/login.html" || window.location.pathname === "/signup.html") {
-//Password Validation
+// if (window.location.pathname === "/login.html") {
+// const passwordLink = document.querySelector(".forgot-password-link");
+// const passwordModal = document.querySelector(".recovery-password-modal");
+// const closeModal = document.querySelector(".close-password");
 
-const passwordInput = document.getElementById("login-password");
-const eyeIcon = document.querySelector(".fa-eye");
+// passwordLink.addEventListener("click", (e) => {
+//     e.preventDefault();
+//     passwordModal.style.display = "block";
+// });
 
-eyeIcon.addEventListener("click", () => {
-    passwordInput.type = passwordInput.type === "password" ? "text" : "password";
-    if (passwordInput.type === "password") {
-        eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
-    } else {
-        eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
-    }
-});
+// closeModal.addEventListener("click", () => {
+//     passwordModal.style.display = "none";
+// });
+// }
 
-}
+
+
+// if (window.location.pathname === "/login.html" || window.location.pathname === "/signup.html") {
+// //Password Validation
+
+// const passwordInput = document.getElementById("login-password");
+// const eyeIcon = document.querySelector(".fa-eye");
+
+// eyeIcon.addEventListener("click", () => {
+//     passwordInput.type = passwordInput.type === "password" ? "text" : "password";
+//     if (passwordInput.type === "password") {
+//         eyeIcon.classList.replace("fa-eye-slash", "fa-eye");
+//     } else {
+//         eyeIcon.classList.replace("fa-eye", "fa-eye-slash");
+//     }
+// });
+
+// }
