@@ -410,7 +410,8 @@ nav{
 }
 
 .community{
-    margin: 60px auto;
+    margin-top: 60px;
+    margin-bottom: 60px;
 }
 
 .community h1{
