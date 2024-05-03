@@ -144,6 +144,49 @@ nav{
     transform: translateX(0%);
 }
 
+.location-nav p{
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 16px 32px;
+    display: block;
+    cursor: pointer;
+}
+
+.location-nav p:hover{
+    background: #eaebef;
+    transition: 0.5s;
+}
+
+.sub-nav{
+    max-height: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 16px 50px;
+    overflow: hidden;
+    transition: max-height ease-in-out .5s;
+}
+
+
+/* .location-modal{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height ease-in-out .5s;
+    position: absolute;
+    z-index: 1000;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 100px;
+    background: #eaebef;
+} */
+
+
+.active.sub-nav{
+    max-height: 500px;
+}
+
 .home-action-icons{
     display: flex;
     align-items: center;
@@ -396,6 +439,123 @@ nav{
     line-height: 1.5;
 }
 
+.rating-container{
+    margin-bottom: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.rating{
+    border: 1px solid #eaebef;
+    border-radius: 6px;
+    flex-basis: 400px;
+    height: 300px;
+}
+
+.rating-info{
+    border-bottom: 1px solid #eaebef;
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.rating-user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.rating-user .icon{
+    color: #FFFFFF;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.user1{
+    background: #8D6E63;
+}
+
+.user2{
+    background: #EC407A;
+}
+
+.user3{
+    background: #0097A7;
+}
+
+.user4{
+    background: #00897B;
+}
+
+.user5{
+    background: #455A64;
+}
+
+.user6{
+    background: #01579B;
+}
+
+.user7{
+    background: #AB47BC;
+}
+
+.rate i{
+    color: #FACD3D;
+}
+
+.rating-message{
+    padding: 16px;
+}
+
+.rate-date{
+    margin-bottom: 16px;
+    color: #6E6E6E;
+}
+
+.rate-message{
+    line-height: 1.5;
+}
+
+.more-reviews{
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.more-review-btn button{
+    outline: none;
+    border: none;
+    background: #FACD3D;
+    color: #FFFFFF;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.more-reviews a{
+    text-decoration: none;
+    color: #6E6E6E;
+}
+
+.more-reviews a span{
+    color: #000000;
+    font-weight: bold;
+}
+
+.hide{
+    display: none;
+}
+
 .newsletter-section{
     background: #EFE5DB;
 }
@@ -564,6 +724,16 @@ nav{
     color: #243455;
     font-weight: bold;
     margin-bottom: 10px;
+    position: relative;
+}
+
+.statement-info h2::after{
+    position: absolute;
+    content: "";
+    bottom: -6px;
+    left: 0;
+    width: 110px;
+    border: solid .1px #243455;
 }
 
 .statement-info p{
@@ -572,31 +742,18 @@ nav{
 }
 
 .background-video{
-    position: relative;
-    width: 100%;
-    height: 60vh;
-    overflow: hidden;
     margin: 32px auto;
 }
 
 .bg-video{
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: -1;
 }
 
 .video-content{
-    position: absolute;
-    top: 50%;
-    left: 0;
-    width: 100%;
-    transform: translateY(-50%);
-    z-index: 1;
     text-align: center;
+    margin: 50px auto;
 }
 
 .video-content h2{
@@ -607,8 +764,7 @@ nav{
 }
 
 .video-content p{
-    color: #FFFFFF;
-    font-size: 15px;
+    font-size: 18px;
     line-height: 1.5;
 }
 
@@ -625,6 +781,16 @@ nav{
     color: #243455;
     font-weight: bold;
     margin: 10px auto;
+    position: relative;
+}
+
+.community-info h2::after{
+    position: absolute;
+    content: "";
+    bottom: -6px;
+    left: 0;
+    width: 110px;
+    border: solid .1px #243455;
 }
 
 .community-info p{
@@ -749,7 +915,7 @@ nav{
 
     nav ul{
         display: flex;
-        align-items: center;
+        align-items: start;
         gap: 16px;
     }
 
@@ -769,6 +935,16 @@ nav{
         background: none;
         position: unset;
         transform: translateX(0);
+    }
+
+    .location-nav p{
+        display: unset;
+        padding: unset;
+    }
+
+    .location-nav p:hover{
+        background: unset;
+        color: #FACD3D;
     }
 
     .coffee-pack-banner{

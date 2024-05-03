@@ -42,6 +42,39 @@ newsletterButton.addEventListener("click", (e) => {
 });
 
 
+// Show More Reviews
+
+const showReviewBtn = document.querySelector(".more-review-btn");
+const moreReviews = document.querySelector(".hide");
+const removeButton = document.querySelector(".more-reviews");
+
+showReviewBtn.addEventListener("click", () => {
+    moreReviews.style.display = "block";
+    removeButton.remove();
+});
+
+
+// Show Sub Nav for Location Tab
+
+const locationTab = document.querySelector(".location-nav");
+const subTab = document.querySelector(".sub-nav");
+
+locationTab.addEventListener("click", () => {
+    subTab.classList.toggle("active");
+});
+
+// const passwordLink = document.querySelector(".location-nav");
+// const passwordModal = document.querySelector(".location-modal");
+// // const closeModal = document.querySelector(".close-password");
+
+// passwordLink.addEventListener("click", () => {
+//     // e.preventDefault();
+//     passwordModal.classList.toggle("active");
+// });
+
+// closeModal.addEventListener("click", () => {
+//     passwordModal.style.display = "none";
+// });
 
 
 
