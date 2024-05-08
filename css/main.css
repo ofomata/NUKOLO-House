@@ -695,7 +695,8 @@ nav{
     color: #243455;
     font-weight: bold;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 32px;
+    text-transform: uppercase;
 }
 
 .our-story-welcome span,
@@ -710,21 +711,28 @@ nav{
     line-height: 1.5;
 }
 
+.our-story-statement-container{
+    background: #eaebef;
+    padding-bottom: 20px;
+}
+
 .our-story-statements{
     margin: 25px auto;
 }
 
-.statement-image img{
+.statement-image{
     width: 100%;
-    margin-bottom: 16px;
+    height: 100%;
+    object-fit: cover;
 }
 
 .statement-info h2{
     font-size: 20px;
     color: #243455;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin: 25px auto;
     position: relative;
+    text-transform: uppercase;
 }
 
 .statement-info h2::after{
@@ -739,6 +747,7 @@ nav{
 .statement-info p{
     font-size: 18px;
     line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 .background-video{
@@ -754,6 +763,8 @@ nav{
 .video-content{
     text-align: center;
     margin: 50px auto;
+    background: #EFE5DB;
+    padding: 20px;
 }
 
 .video-content h2{
@@ -770,18 +781,23 @@ nav{
 
 .our-story-community{
     margin-bottom: 32px;
+    background: #eaebef;
+    padding-bottom: 20px;
 }
 
-.community-image img{
+.community-image{
     width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .community-info h2{
     font-size: 20px;
     color: #243455;
     font-weight: bold;
-    margin: 10px auto;
+    margin: 25px auto;
     position: relative;
+    text-transform: uppercase;
 }
 
 .community-info h2::after{
@@ -796,6 +812,7 @@ nav{
 .community-info p{
     font-size: 18px;
     line-height: 1.5;
+    margin-bottom: 20px;
 }
 
 /* MEMEBERSHIP PAGE */
@@ -993,14 +1010,30 @@ nav{
     .our-story-statements{
         display: grid;
         grid-template-columns: 1fr 1fr;
-        gap: 20px;
         grid-template-areas: 
         "left right";
         margin: unset;
     }
 
-    .statement-image img{
+    .our-story-statement-container{
+        padding-bottom: unset;
+    }
+
+    .statement-image{
         margin-bottom: unset;
+    }
+
+    .statement-info{
+        margin: auto 60px;
+    }
+
+    .community-info{
+        margin: auto 60px;
+    }
+
+    .statement-info h2,
+    .community-info h2{
+        font-size: 25px;
     }
     
     .left{
@@ -1009,6 +1042,14 @@ nav{
 
     .our-story-welcome{
         margin-bottom: 32px;
+    }
+
+    .our-story-welcome h1{
+        font-size: 30px;
+    }
+
+    .our-story-welcome p{
+        margin: auto 100px;
     }
 
     .background-video{
@@ -1022,14 +1063,15 @@ nav{
     
     .video-content p{
         font-size: 18px;
+        margin: auto 100px;
     }
 
     .our-story-community{
         display: grid;
-        grid-template-columns: auto;
-        gap: 20px;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas: 
         "left right";
+        padding-bottom: unset;
     }
     
     .left{
