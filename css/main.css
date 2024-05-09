@@ -707,7 +707,7 @@ nav{
 
 .our-story-welcome p{
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -745,13 +745,13 @@ nav{
 }
 
 .statement-info p{
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
 
 .background-video{
-    margin: 32px auto;
+    margin-top: 32px;
 }
 
 .bg-video{
@@ -762,9 +762,9 @@ nav{
 
 .video-content{
     text-align: center;
-    margin: 50px auto;
     background: #EFE5DB;
-    padding: 20px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .video-content h2{
@@ -776,7 +776,7 @@ nav{
 }
 
 .video-content p{
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
 }
 
@@ -811,7 +811,7 @@ nav{
 }
 
 .community-info p{
-    font-size: 18px;
+    font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
 }
