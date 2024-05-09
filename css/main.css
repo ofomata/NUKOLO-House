@@ -727,7 +727,7 @@ nav{
 }
 
 .statement-info h2{
-    font-size: 20px;
+    font-size: 25px;
     color: #243455;
     font-weight: bold;
     margin: 25px auto;
@@ -740,7 +740,7 @@ nav{
     content: "";
     bottom: -6px;
     left: 0;
-    width: 110px;
+    width: 170px;
     border: solid .1px #243455;
 }
 
@@ -768,10 +768,11 @@ nav{
 }
 
 .video-content h2{
-    color: #FACD3D;
+    color: #243455;
     font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .video-content p{
@@ -792,7 +793,7 @@ nav{
 }
 
 .community-info h2{
-    font-size: 20px;
+    font-size: 25px;
     color: #243455;
     font-weight: bold;
     margin: 25px auto;
@@ -805,7 +806,7 @@ nav{
     content: "";
     bottom: -6px;
     left: 0;
-    width: 110px;
+    width: 140px;
     border: solid .1px #243455;
 }
 
@@ -1033,7 +1034,7 @@ nav{
 
     .statement-info h2,
     .community-info h2{
-        font-size: 25px;
+        font-size: 30px;
     }
     
     .left{
