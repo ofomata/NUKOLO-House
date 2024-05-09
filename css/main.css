@@ -843,6 +843,44 @@ nav{
     text-align: center;
 }
 
+.apply-membership-banner{
+    text-align: center;
+    background: #EFE5DB;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin: 40px auto;
+}
+
+.apply-membership h1{
+    color: #243455;
+    font-weight: bold;
+    margin-bottom: 32px;
+}
+
+.apply-membership p{
+    font-size: 20px;
+    line-height: 1.5;
+}
+
+.apply-membership-link a{
+    text-decoration: none;
+    color: #F7F7F7;
+    background: #243455;
+    padding: 8px 16px;
+    border-radius: 32px;
+    font-weight: bolder;
+}
+
+.apply-membership-link{
+    margin: 40px auto;
+}
+
+.apply-membership-link a:hover{
+    background: #eaebef;
+    color: #000000;
+    transition: .5s;
+}
+
 .membership h2{
     text-align: center;
     font-size: 20px;
@@ -896,6 +934,46 @@ nav{
     border-color: #243455;
     color: #243455;
     transition: .5s;
+}
+
+.ready-to-apply-banner{
+    margin: 70px auto;
+    background: #eaebef;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+
+.ready-to-apply-image{
+    margin: 16px 40px;
+}
+
+.ready-to-apply-image img{
+    width: 100%;
+}
+
+.ready-to-apply-details h1{
+    color: #243455;
+    margin-bottom: 32px;
+}
+
+.ready-to-apply-details .ready-info{
+    margin-bottom: 32px;
+    font-size: 18px;
+}
+
+.ready-to-apply-details .apply-needs{
+    margin-bottom: 16px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.ready-to-apply-details small{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 12px;
 }
 
 @media (min-width: 825px) {
@@ -1063,7 +1141,6 @@ nav{
     }
     
     .video-content p{
-        font-size: 18px;
         margin: auto 100px;
     }
 
@@ -1081,10 +1158,42 @@ nav{
 
     /* MEMBERSHIP PAGE */
 
+    .apply-membership p{
+        margin: auto 170px;
+    }
+
     .membership-types{
         display: flex;
         align-items: center;
         gap: 16px;
+    }
+
+    .ready-to-apply-banner{
+        text-align: unset;
+        margin: 50px 100px;
+        padding: 60px;
+    }
+
+    .ready-to-apply-content{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ready-to-apply-image{
+        flex-basis: 50%;
+    }
+
+    .ready-to-apply-image img{
+        width: 70%;
+    }
+
+    .ready-to-apply-details{
+        flex-basis: 50%;
+    }
+
+    .ready-to-apply-details small{
+        justify-content: unset;
     }
 }
 
