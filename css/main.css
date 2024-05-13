@@ -939,7 +939,7 @@ nav{
     text-align: center;
 }
 
-.ready-to-apply-content img{
+.ready-to-apply-image img{
     width: 100%;
 }
 
@@ -1162,20 +1162,18 @@ nav{
     }
 
     .ready-to-apply-banner{
-        text-align: unset;
         margin: 50px;
     }
 
     .ready-to-apply-content{
         display: flex;
         align-items: center;
-        justify-content: center;
-        gap: 100px;
+        gap: 60px;
     }
 
-    .ready-to-apply-details small{
-        justify-content: unset;
-    }
+    /* .ready-to-apply-details{
+        flex-basis: 60%;
+    } */
 }
 
 @media (min-width: 1200px) {
