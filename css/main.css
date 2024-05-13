@@ -823,7 +823,7 @@ nav{
     background-size: cover;
     background-position: center;
     width: 100%;
-    min-height: 40vh;
+    height: 40vh;
     /* background-repeat: no-repeat; */
 }
 
@@ -849,7 +849,6 @@ nav{
     background: #EFE5DB;
     padding-top: 50px;
     padding-bottom: 50px;
-    margin: 40px auto;
 }
 
 .apply-membership h1{
@@ -967,6 +966,12 @@ nav{
     margin-bottom: 12px;
 }
 
+
+@media (min-width: 600px) {
+    .membership-page-banner{
+        height: 60vh;
+    }
+}
 
 
 @media (min-width: 825px) {
@@ -1150,6 +1155,10 @@ nav{
     }
 
     /* MEMBERSHIP PAGE */
+
+    .membership-page-banner{
+        height: 80vh;
+    }
 
     .apply-membership p{
         margin: auto 170px;
