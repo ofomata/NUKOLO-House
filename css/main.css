@@ -981,7 +981,7 @@ nav{
     padding-bottom: 20px;
 }
 
-form input{
+.application-form input{
     display: block;
     width: 100%;
     margin: 16px auto;
@@ -990,7 +990,7 @@ form input{
     color: #243455;
 }
 
-form input::placeholder{
+.application-form input::placeholder{
     color: #243455;
     font-weight: bold;
 }
@@ -1043,6 +1043,7 @@ button.sign-in:hover{
     background: #243455;
     padding: 16px;
     border-radius: 16px;
+    margin: 50px auto;
 }
 
 .subscription-benefits h1{
@@ -1053,19 +1054,17 @@ button.sign-in:hover{
 
 .subscription-benefits-box{
     display: flex;
-    align-items: center;
     gap: 30px;
     flex-wrap: wrap;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .sub-box{
-    flex-basis: 400px;
+    flex-basis: 350px;
     border-radius: 16px;
     padding: 25px;
-    margin: 25px auto;
     text-align: center;
-    /* max-width: 400px; */
 }
 
 .sub-box1{
@@ -1091,6 +1090,117 @@ button.sign-in:hover{
     color: #243455;
     margin-bottom: 16px;
     font-weight: bold;
+}
+
+.sub-perks{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 32px;
+    flex-wrap: wrap;
+}
+
+.perks{
+    flex-basis: 350px;
+    padding: 20px 32px;
+    border-radius: 16px;
+}
+
+.monthly-gifts{
+    background: #EFE5DB;
+}
+
+.monthly-gifts h1{
+    color: #8D6E63;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.bold{
+    margin-top: 16px;
+    font-weight: bold;
+}
+
+.join-today{
+    background: #d7e1f5;
+}
+
+.join-today h1{
+    color: #243455;
+    font-size: 28px;
+    margin-bottom: 12px;
+}
+
+.tiers-container{
+    background: #eaebef;
+    margin: 32px auto;
+    padding: 16px;
+}
+
+.tiers-container p{
+    text-align: center;
+}
+
+.sub-tiers{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.tier{
+    flex-basis: 350px;
+}
+
+.tier h1{
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.tier p{
+    text-align: justify;
+    line-height: 1.5;
+}
+
+p.basic-info{
+    background: #d7e1f5;
+    color: #243455;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+p.gold-info{
+    background: #EFE5DB;
+    color: #243455;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+p.black-info{
+    background: #8D6E63;
+    color: #F7F7F7;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.black{
+    max-width: 350px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
 }
 
 @media (min-width: 600px) {
@@ -1303,7 +1413,7 @@ button.sign-in:hover{
 
     /* APPLICATION FORM */
 
-    form{
+    .application-form{
         min-width: 500px;
     }
 
@@ -1316,20 +1426,25 @@ button.sign-in:hover{
 
     /* SUBSCRIPTION PAGE */
 
-    .subscription-page-content p{
+    .subscription-page-content p,
+    .tiers-container p{
         margin: auto 170px;
     }
 
-    /* .subscription-benefits-box{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 25px;
-    } */
+    .black{
+        max-width: 720px;
+        display: block;
+        margin: 0 auto;
+        margin-top: 25px;
+        margin-bottom: 50px;
+    }
 
-    /* .sub-box{
-        max-width: unset;
-    } */
+    p.black-info{
+        max-width: 350px;
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 12px;
+    }
 }
 
 @media (min-width: 1200px) {
