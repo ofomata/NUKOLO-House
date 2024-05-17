@@ -822,8 +822,8 @@ nav{
     background-image: url(/image/membership\ banner\ main\ mobile.png);
     background-size: cover;
     background-position: center;
-    width: 100%;
-    height: 40vh;
+    width: 100vw;
+    height: 25vh;
     /* background-repeat: no-repeat; */
 }
 
@@ -1035,7 +1035,7 @@ button.sign-in:hover{
 .subscription-page-banner{
     background-image: url(/image/fake\ banner\ 1.jpg);
     width: 100vw;
-    height: 30vh;
+    height: 25vh;
     background-size: cover;
     background-position: center;
     object-fit: contain;
@@ -1214,7 +1214,11 @@ p.black-info{
 
 @media (min-width: 600px) {
     .membership-page-banner{
-        height: 50vh;
+        height: 40vh;
+    }
+
+    .subscription-page-banner{
+        height: 40vh;
     }
 }
 
@@ -1456,9 +1460,23 @@ p.black-info{
     }
 }
 
+@media (min-width: 950px) {
+    .membership-page-banner{
+        height: 60vh;
+    }
+
+    .subscription-page-banner{
+        height: 60vh;
+    }
+}
+
 @media (min-width: 1200px) {
     .membership-page-banner{
-        height: 100vh;
+        height: 80vh;
+    }
+
+    .subscription-page-banner{
+        height: 80vh;
     }
 }
 
