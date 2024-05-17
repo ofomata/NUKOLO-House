@@ -1032,6 +1032,15 @@ button.sign-in:hover{
 
 /* SUBSCRIPTION PAGE */
 
+.subscription-page-banner{
+    background-image: url(/image/fake\ banner\ 1.jpg);
+    width: 100vw;
+    height: 30vh;
+    background-size: cover;
+    background-position: center;
+    object-fit: contain;
+}
+
 .subscription-page-content p{
     font-size: 18px;
     line-height: 1.5;
