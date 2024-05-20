@@ -1090,7 +1090,7 @@ button.sign-in:hover{
 
 .sub-box img{
     width: 100%;
-    height: 150px;
+    height: 250px;
     border-radius: 16px;
     margin-bottom: 25px;
     object-fit: cover;
@@ -1211,6 +1211,89 @@ p.black-info{
     margin: 0 auto;
     margin-top: 20px;
     margin-bottom: 40px;
+}
+
+.why-sub{
+    background: #eaebef;
+    margin-bottom: 40px;
+    padding: 20px;
+}
+
+.why-sub h1{
+    text-align: center;
+    font-weight: 1000;
+}
+
+.why-sub-content{
+    margin: 32px auto;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.why-sub-box{
+    flex-basis: 200px;
+    text-align: center;
+}
+
+.why-sub-box img{
+    margin-bottom: 20px;
+}
+
+.why-sub-bee{
+    width: 50px;
+}
+
+.why-sub-box p{
+    margin: 16px;
+}
+
+.faq{
+    margin: 60px auto;
+}
+
+.faq h1{
+    margin: 32px auto;
+    font-size: 20px;
+    color: #243455;
+}
+
+.faq-content{
+    border-top: 1px solid #000000;
+}
+
+.faq-content:last-child{
+    border-bottom: 1px solid #000000;
+}
+
+.faq-questions{
+    cursor: pointer;
+    margin: 16px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.faq-questions p{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.answers{
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height .3s;
+}
+
+.answers p{
+    margin-bottom: 32px;
+}
+
+.active .answers{
+    max-height: 500px;
+    transition: max-height ease-in-out 1s;
 }
 
 @media (min-width: 600px) {
@@ -1462,6 +1545,11 @@ p.black-info{
         display: block;
         margin: 0 auto;
         margin-bottom: 12px;
+    }
+
+    .faq{
+        display: block;
+        max-width: 1200px;
     }
 }
 

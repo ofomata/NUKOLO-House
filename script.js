@@ -44,24 +44,44 @@ newsletterButton.addEventListener("click", (e) => {
 
 // Show More Reviews
 
-const showReviewBtn = document.querySelector(".more-review-btn");
-const moreReviews = document.querySelector(".hide");
-const removeButton = document.querySelector(".more-reviews");
+if (window.location.pathname === "/home.html") {
+    const showReviewBtn = document.querySelector(".more-review-btn");
+    const moreReviews = document.querySelector(".hide");
+    const removeButton = document.querySelector(".more-reviews");
 
-showReviewBtn.addEventListener("click", () => {
-    moreReviews.style.display = "block";
-    removeButton.remove();
+    showReviewBtn.addEventListener("click", () => {
+        moreReviews.style.display = "block";
+        removeButton.remove();
+    });
+}
+
+
+// Accordion Toggle
+
+const question = document.querySelectorAll(".faq-content");
+
+question.forEach((questions) => {
+    const icon = questions.querySelector(".fa-plus");
+    questions.addEventListener("click", () => {
+        questions.classList.toggle("active");
+
+        if (icon.classList.contains("fa-plus")) {
+            icon.classList.replace("fa-plus", "fa-minus");
+        } else {
+            icon.classList.replace("fa-minus", "fa-plus");
+        }
+    });
 });
 
 
 // Show Sub Nav for Location Tab
 
-const locationTab = document.querySelector(".location-nav");
-const subTab = document.querySelector(".sub-nav");
+// const locationTab = document.querySelector(".location-nav");
+// const subTab = document.querySelector(".sub-nav");
 
-locationTab.addEventListener("click", () => {
-    subTab.classList.toggle("active");
-});
+// locationTab.addEventListener("click", () => {
+//     subTab.classList.toggle("active");
+// });
 
 // const passwordLink = document.querySelector(".location-nav");
 // const passwordModal = document.querySelector(".location-modal");
