@@ -1444,7 +1444,7 @@ p.black-info{
     align-items: center;
     gap: 5px;
     justify-content: center;
-    max-width: 300px;
+    max-width: 400px;
     margin: 32px auto;
     border-top: 1px solid #F7F7F7;
     border-bottom: 1px solid #F7F7F7;
@@ -1805,6 +1805,10 @@ a.guest-event{
 
     .subscription-page-banner{
         height: 120vh;
+    }
+
+    .event-main{
+        height: 160vh;
     }
 }
 
