@@ -1296,6 +1296,209 @@ p.black-info{
     transition: max-height ease-in-out 1s;
 }
 
+/* WHOLESALE PAGE */
+
+.wholesale-page{
+    margin: 32px auto;
+}
+
+.wholesale-page h1{
+    color: #FACD3D;
+    text-align: center;
+    font-size: 36px;
+}
+
+.wholesale-page p{
+    margin: 32px auto;
+    font-size: 18px;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.wholesale-page h5{
+    font-size: 18px;
+    text-align: center;
+}
+
+.wholesale-form-section{
+    margin: 32px auto;
+}
+
+.wholesale-form-section img{
+    width: 120px;
+    display: block;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.wholesale-form{
+    margin: 32px auto;
+    background: #eaebef;
+    padding: 32px;
+    border-radius: 16px;
+}
+
+.whole-sale-form input{
+    display: block;
+    width: 100%;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    padding: 5px 16px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.whole-sale-form label{
+    margin: 10px;
+    font-size: 14px;
+}
+
+.whole-sale-form textarea{
+    display: block;
+    width: 100%;
+    padding: 10px 16px;
+    outline: none;
+    border: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-top: 6px;
+    margin-bottom: 40px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.whole-sale-form button{
+    margin: 0 auto;
+    outline: none;
+    border: none;
+    background: #d7e1f5;
+    padding: 7px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #243455;
+    border-radius: 10px;
+    cursor: pointer;
+    display: block;
+    max-width: 1200px;
+}
+
+/* EVENT PAGE */
+
+@font-face {
+    font-family: 'Vellaming';
+    src: url(/font/Vellaming-6Yrj6.ttf) format('truetype'),
+         url(/font/Vellaming-6Yrj6.ttf) format('truetype');
+    /* font-weight: normal;
+    font-style: normal; */
+}
+
+.event-main{
+    background-image: url(/image/Event\ Image\ page.jpg);
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.event-page{
+    padding-top: 32px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.event-page-left{
+    flex-basis: 300px;
+}
+
+.event-page-right{
+    flex-basis: 500px;
+}
+
+.event-page-left p{
+    font-family: 'Vellaming', sans-serif;
+    font-size: 50px;
+    color: #FFEBAF;
+}
+
+.event-page-left h1{
+    color: #FFFFFF;
+    font-weight: 1000;
+    font-size: 40px;
+}
+
+.event-page-right p{
+    color: #FFFFFF;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+
+.event-logos{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
+    max-width: 300px;
+    margin: 32px auto;
+    border-top: 1px solid #F7F7F7;
+    border-bottom: 1px solid #F7F7F7;
+}
+
+.event-logos img{
+    width: 100px;
+}
+
+.event-action-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.event-action-buttons a{
+    text-decoration: none;
+    color: #F7F7F7;
+    font-size: 12px;
+}
+
+a.member-event{
+    background: #FFEBAF;
+    color: #243455;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+a.guest-event{
+    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 12px;
+}
+
+.vertical-line {
+    border-left: 1px solid #F7F7F7;
+    height: 30px;
+}
+
+@media (max-width: 600px) or (max-height: 500px) {
+    .event-main{
+        height: 160vh;
+    }
+
+    .event-logos img{
+        width: 60px;
+    }
+}
+
 @media (min-width: 600px) {
     .membership-page-banner{
         height: 50vh;
@@ -1303,6 +1506,11 @@ p.black-info{
 
     .subscription-page-banner{
         height: 45vh;
+    }
+
+    .event-logos{
+        gap: 20px;
+        max-width: 550px;
     }
 }
 
@@ -1550,6 +1758,33 @@ p.black-info{
     .faq{
         display: block;
         max-width: 1200px;
+    }
+
+    /* WHOLESALE PAGE */
+
+    .wholesale-page{
+        display: block;
+        max-width: 800px;
+    }
+
+    .wholesale-form{
+        max-width: 800px;
+    }
+
+    /* EVENT PAGE */
+
+    .event-page-right p{
+        text-align: justify;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .event-page{
+        margin-bottom: 60px;
+    }
+
+    .event-page{
+        gap: 50px;
     }
 }
 
