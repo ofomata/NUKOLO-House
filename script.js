@@ -44,7 +44,7 @@ newsletterButton.addEventListener("click", (e) => {
 
 // Show More Reviews
 
-if (window.location.pathname === "/home.html") {
+if (window.location.pathname === "/shop.html") {
     const showReviewBtn = document.querySelector(".more-review-btn");
     const moreReviews = document.querySelector(".hide");
     const removeButton = document.querySelector(".more-reviews");

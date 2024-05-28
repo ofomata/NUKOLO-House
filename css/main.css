@@ -513,6 +513,10 @@ nav{
 
 .rating-message{
     padding: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
 }
 
 .rate-date{
@@ -522,6 +526,7 @@ nav{
 
 .rate-message{
     line-height: 1.5;
+    text-align: center;
 }
 
 .more-reviews{
