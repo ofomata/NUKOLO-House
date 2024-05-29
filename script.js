@@ -74,6 +74,59 @@ question.forEach((questions) => {
 });
 
 
+
+if (window.location.pathname === "/shop.html") {
+    let currentIndex = 0;
+    let autoSlideInterval;
+
+    const slides = document.querySelectorAll('.slide');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+    const sliderContainer = document.getElementById('slider-container');
+
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            if (i === index) {
+                slide.style.display = 'block';
+                setTimeout(() => slide.style.opacity = '1', 10);
+            } else {
+                slide.style.opacity = '0';
+                setTimeout(() => slide.style.display = 'none', 1);
+            }
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+
+    function startAutoSlide() {
+        autoSlideInterval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(autoSlideInterval);
+    }
+
+    sliderContainer.addEventListener('mouseover', stopAutoSlide);
+    sliderContainer.addEventListener('mouseout', startAutoSlide);
+
+    // Event listeners
+    prevButton.addEventListener('click', prevSlide);
+    nextButton.addEventListener('click', nextSlide);
+
+    // Initial display
+    showSlide(currentIndex);
+    startAutoSlide();
+}
+
+
 // Show Sub Nav for Location Tab
 
 // const locationTab = document.querySelector(".location-nav");
