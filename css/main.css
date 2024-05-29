@@ -5,6 +5,13 @@
     box-sizing: border-box;
 }
 
+.testing{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
 .index-body{
     background-image: url(/image/Welcome\ page\ fake\ \(1\).jpg);
     width: 100%;
