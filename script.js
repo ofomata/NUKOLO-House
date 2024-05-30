@@ -75,56 +75,112 @@ question.forEach((questions) => {
 
 
 
-if (window.location.pathname === "/shop.html") {
-    let currentIndex = 0;
-    let autoSlideInterval;
+// Home Hero Banner Slide Display
 
-    const slides = document.querySelectorAll('.slide');
-    const prevButton = document.getElementById('prev');
-    const nextButton = document.getElementById('next');
+if (window.location.pathname === "/shop.html") {
     const sliderContainer = document.getElementById('slider-container');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
+    if (sliderContainer) {
+        let currentIndex = 0;
+        let autoSlideInterval;
+
+        const slides = sliderContainer.querySelectorAll('.slide');
+        const prevButton = sliderContainer.querySelector('#prev');
+        const nextButton = sliderContainer.querySelector('#next');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('visible');
+                    slide.classList.remove('hidden');
+                } else {
+                    slide.classList.add('hidden');
+                    slide.classList.remove('visible');
+                }
+            });
+        }
+
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        sliderContainer.addEventListener('mouseover', stopAutoSlide);
+        sliderContainer.addEventListener('mouseout', startAutoSlide);
+
+        // Event listeners
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Initial display
+        showSlide(currentIndex);
+        startAutoSlide();
+    }
+}
+
+
+
+// Home Top Ad Slide Display
+
+const adContainer = document.getElementById('ad-container');
+
+if (adContainer) {
+    let newCurrentIndex = 0;
+    let newAutoSlideInterval;
+
+    const ads = adContainer.querySelectorAll('.ad');
+
+    function showAd(index) {
+        ads.forEach((ad, i) => {
             if (i === index) {
-                slide.style.display = 'block';
-                setTimeout(() => slide.style.opacity = '1', 10);
+                ad.classList.add('visible');
+                ad.classList.remove('hidden');
             } else {
-                slide.style.opacity = '0';
-                setTimeout(() => slide.style.display = 'none', 1);
+                ad.classList.add('hidden');
+                ad.classList.remove('visible');
             }
         });
     }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
+    function nextAd() {
+        newCurrentIndex = (newCurrentIndex + 1) % ads.length;
+        showAd(newCurrentIndex);
     }
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
+    function prevAd() {
+        newCurrentIndex = (newCurrentIndex - 1 + ads.length) % ads.length;
+        showAd(newCurrentIndex);
     }
 
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
+    function startAutoAd() {
+        newAutoSlideInterval = setInterval(nextAd, 5000);
     }
 
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
+    function stopAutoAd() {
+        clearInterval(newAutoSlideInterval);
     }
 
-    sliderContainer.addEventListener('mouseover', stopAutoSlide);
-    sliderContainer.addEventListener('mouseout', startAutoSlide);
-
-    // Event listeners
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
+    adContainer.addEventListener('mouseover', stopAutoAd);
+    adContainer.addEventListener('mouseout', startAutoAd);
 
     // Initial display
-    showSlide(currentIndex);
-    startAutoSlide();
+    showAd(newCurrentIndex);
+    startAutoAd();
 }
+
 
 
 // Show Sub Nav for Location Tab

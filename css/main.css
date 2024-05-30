@@ -14,86 +14,51 @@
     object-fit: contain;
 }
 
-/* .wrapper{
-    width: 100%;
+/* SHOP PAGE */
+#ad-container{
+    text-align: center;
+    background: #FACD3D;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height ease-in-out 1s;
 }
 
-.logo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
+.ad{
+    padding: 10px;
 }
 
-.logo img{
-    width: 50px;
-    height: auto;
-}
-
-.content {
-    background: #d7e1f5;
-    margin: 32px 60px;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-}
-
-.content-left h1{
-    margin: 16px auto;
-    font-family: 'Raleway', sans-serif;
-    font-weight: 500;
-    font-size: 36px;
-}
-
-.cta-btn{
-    margin: 32px auto;
-}
-
-.cta-btn a{
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
-    padding: 17px;
-    color: #243455;
-    font-weight: 600;
-    font-size: 16px;
-    text-decoration: none
-}
-
-.cta-btn a:hover{
-    color: #6E6E6E;
-    transition: .5s;
-}
-
-.shop-link{
-    display: flex;
-    align-items: center;
-    margin: 50px auto;
-}
-
-.shop-link a{
+.ad a{
     text-decoration: none;
-    color: #000000;
-    font-size: 14px;
+    color: #FFFFFF;
+    text-transform: uppercase;
     font-weight: bold;
+    font-size: 14px;
 }
 
-.shop-link svg{
-    width: 30px;
-    transition: transform .5s;
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
-.shop-link:hover svg{
-    transform: translateX(15px);
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
 }
 
-.content-right img{
-    width: 100%;
-    margin-top: 32px;
-    border-radius: 12px;
-    box-shadow: 0px 0px 10px rgba(1, 1, 1, 1);
-} */
+.ad, .slide {
+    display: none;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
 
-/* HOME PAGE */
+.ad.visible, .slide.visible {
+    display: block;
+    animation: fadeIn 2s forwards;
+}
+
+.ad.hidden, .slide.hidden {
+    animation: fadeOut 2s forwards;
+}
 
 header{
     display: flex;
@@ -215,12 +180,10 @@ nav{
 }
 
 .slide {
-    display: none;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    transition: opacity 1s ease-in-out;
 }
 
 #prev, 
@@ -1053,7 +1016,6 @@ button.sign-in:hover{
 }
 
 /* SUBSCRIPTION PAGE */
-
 .subscription-page-banner{
     background-image: url(/image/fake\ banner\ 4.jpg);
     width: 100%;
@@ -1526,6 +1488,10 @@ a.guest-event{
         height: 45vh;
     }
 
+    #ad-container{
+        max-height: 500px;
+    }
+
     #slider-container {
         height: 45vh;
     }
@@ -1546,35 +1512,46 @@ a.guest-event{
     #prev, 
     #next {
         display: unset;
-}
+    }
+
+    .sub-perks{
+        position: relative;
+    }
+    
+    .sub-perks::before{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1000px;
+        top: -150px;
+        left: 0;
+        background: url(/image/falling\ bean\ orginal.png);
+        background-repeat: no-repeat;
+        z-index: -999;
+        pointer-events: none;
+    }
+    
+    /* .sub-bg{
+        position: relative;
+    }
+    
+    .sub-bg::after{
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1000px;
+        top: 100px;
+        right: 0;
+        background: url(/image/falling\ bean\ orginal.png);
+        background-repeat: no-repeat;
+        z-index: -999;
+        pointer-events: none;
+    }  */
 }
 
 
 @media (min-width: 825px) {
-    .content{
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 40px;
-        padding: 40px;
-    }
-    
-    .content-right img{
-        height: 350px;
-        margin-top: unset;
-        object-fit: cover;
-    }
-
-    /* .content-left h1{
-        font-size: 40px;
-    }
-
-    .cta-btn a{
-        font-size: 17px;
-    } */
-
-    /* HOME PAGE */
-
+    /* SHOP PAGE */
     header{
         padding: 16px 32px;
     }
@@ -1879,6 +1856,10 @@ a.guest-event{
     .subscription-page-banner{
         height: 120vh;
     }
+
+    /* .sub-bg::after{
+        left: 1000px;
+    } */
 }
 
 /* .content{
