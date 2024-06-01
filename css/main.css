@@ -15,6 +15,112 @@
 }
 
 /* SHOP PAGE */
+
+/* SHOPPING CART */
+
+.cart{
+    display: flex;
+    font-size: 16px;
+    font-weight: bolder;
+    justify-content: center;
+    align-items: center;
+    color: #243455;
+    cursor: pointer;
+}
+
+.cart-tab{
+    width: 100%;
+    background: #243455;
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    inset: 0 -100% 0 auto;
+    display: grid;
+    grid-template-rows: 70px 1fr 70px;
+    transition: inset .5s ease-in-out;
+    z-index: 99999;
+}
+
+body.showcart .cart-tab{
+    inset: 0 0 0 auto;
+}
+
+.cart-tab h1{
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    font-weight: 300;
+}
+
+.cart-tab .btn{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.cart-tab .btn button{
+    background: #FACD3D;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.cart-tab .btn button.close{
+    background: #d7e1f5;
+}
+
+.cart-tab .listcart .item img{
+    width: 70px;
+    border-radius: 6px;
+}
+
+.cart-tab .listcart .item{
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    gap: 10px;
+    text-align: center;
+    padding: 12px;
+}
+
+.cart-tab .item .cart-control .name{
+    margin-bottom: 5px;
+}
+
+.listcart .quantity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    border: 1px solid #eaebef;
+    padding: 5px 45px;
+    width: 70px;
+    margin: 0 auto;
+}
+
+.listcart .quantity .plus,
+.listcart .quantity .minus{
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.listcart .quantity span:nth-child(2){
+    color: #FACD3D;
+}
+
+.listcart .item:nth-child(even){
+    background: #455A64;
+}
+
+.listcart{
+    overflow: auto;
+}
+
+.listcart::-webkit-scrollbar{
+    width: 0;
+}
+
 #ad-container{
     text-align: center;
     background: #FACD3D;
@@ -159,11 +265,6 @@ nav{
     gap: 16px;
 }
 
-.cart,
-.account{
-    cursor: pointer;
-}
-
 .shop-banner1{
     background-image: url(/image/Mobile\ Banner\ 2.jpg);
 }
@@ -292,13 +393,21 @@ nav{
 }
 
 .shop-now{
-    text-decoration: none;
     color: #243455;
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 600;
     background: #FACD3D;
-    padding: 3px;
+    padding: 5px;
     border-radius: 3px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.shop-now:hover{
+    color: #FACD3D;
+    background: #243455;
+    transition: .5s;
 }
 
 .category-apparels{
@@ -1488,6 +1597,11 @@ a.guest-event{
         height: 45vh;
     }
 
+    .cart-tab{
+        width: 50%;
+        inset: 0 -50% 0 auto;
+    }
+
     #ad-container{
         max-height: 500px;
     }
@@ -1554,6 +1668,11 @@ a.guest-event{
     /* SHOP PAGE */
     header{
         padding: 16px 32px;
+    }
+
+    .cart-tab{
+        width: 40%;
+        inset: 0 -40% 0 auto;
     }
 
     .menu{

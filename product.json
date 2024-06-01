@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "Cafe Milano - Chiapas, MX",
+        "description": "Premium Meduim Roast | 100% Arabica",
+        "price": 20,
+        "image": "image/aphotos (1).JPG"
+    },
+    {
+        "id": 2,
+        "name": "Cafe Dulce Crema - Oaxaca, MX",
+        "description": "Premium Dark Roast | 100% Arabica",
+        "price": 24,
+        "image": "image/aphotos (19).JPG"
+    },
+    {
+        "id": 3,
+        "name": "Decaf - Veracruz, MX",
+        "description": "Premium Roast | 100% Arabica",
+        "price": 22,
+        "image": "image/decaf coffee.jpeg"
+    }
+]
