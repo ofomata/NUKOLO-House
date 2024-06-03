@@ -77,57 +77,60 @@ question.forEach((questions) => {
 
 // Home Hero Banner Slide Display
 
-const sliderContainer = document.getElementById('slider-container');
+document.addEventListener('DOMContentLoaded', function() {
+    const sliderContainer = document.getElementById('slider-container');
 
-if (sliderContainer) {
-    let currentIndex = 0;
-    let autoSlideInterval;
+    if (sliderContainer) {
+        let currentIndex = 0;
+        let autoSlideInterval;
 
-    const slides = sliderContainer.querySelectorAll('.slide');
-    const prevButton = sliderContainer.querySelector('#prev');
-    const nextButton = sliderContainer.querySelector('#next');
+        const slides = sliderContainer.querySelectorAll('.slide');
+        const prevButton = sliderContainer.querySelector('#prev');
+        const nextButton = sliderContainer.querySelector('#next');
 
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            if (i === index) {
-                slide.classList.add('visible');
-                slide.classList.remove('hidden');
-            } else {
-                slide.classList.add('hidden');
-                slide.classList.remove('visible');
-            }
-        });
-    }
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                if (i === index) {
+                    slide.classList.add('visible');
+                    slide.classList.remove('hidden');
+                } else {
+                    slide.classList.add('hidden');
+                    slide.classList.remove('visible');
+                }
+            });
+        }
 
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % slides.length;
+        function nextSlide() {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function prevSlide() {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        }
+
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 5000);
+        }
+
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+
+        sliderContainer.addEventListener('mouseover', stopAutoSlide);
+        sliderContainer.addEventListener('mouseout', startAutoSlide);
+
+        // Event listeners
+        prevButton.addEventListener('click', prevSlide);
+        nextButton.addEventListener('click', nextSlide);
+
+        // Initial display
         showSlide(currentIndex);
+        startAutoSlide();
     }
+});
 
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    }
-
-    function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000);
-    }
-
-    function stopAutoSlide() {
-        clearInterval(autoSlideInterval);
-    }
-
-    sliderContainer.addEventListener('mouseover', stopAutoSlide);
-    sliderContainer.addEventListener('mouseout', startAutoSlide);
-
-    // Event listeners
-    prevButton.addEventListener('click', prevSlide);
-    nextButton.addEventListener('click', nextSlide);
-
-    // Initial display
-    showSlide(currentIndex);
-    startAutoSlide();
-}
 
 
 
