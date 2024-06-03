@@ -136,51 +136,54 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Home Top Ad Slide Display
 
-const adContainer = document.getElementById('ad-container');
+document.addEventListener('DOMContentLoaded', function() {
+    const adContainer = document.getElementById('ad-container');
 
-if (adContainer) {
-    let newCurrentIndex = 0;
-    let newAutoSlideInterval;
+    if (adContainer) {
+        let newCurrentIndex = 0;
+        let newAutoSlideInterval;
 
-    const ads = adContainer.querySelectorAll('.ad');
+        const ads = adContainer.querySelectorAll('.ad');
 
-    function showAd(index) {
-        ads.forEach((ad, i) => {
-            if (i === index) {
-                ad.classList.add('visible');
-                ad.classList.remove('hidden');
-            } else {
-                ad.classList.add('hidden');
-                ad.classList.remove('visible');
-            }
-        });
-    }
+        function showAd(index) {
+            ads.forEach((ad, i) => {
+                if (i === index) {
+                    ad.classList.add('visible');
+                    ad.classList.remove('hidden');
+                } else {
+                    ad.classList.add('hidden');
+                    ad.classList.remove('visible');
+                }
+            });
+        }
 
-    function nextAd() {
-        newCurrentIndex = (newCurrentIndex + 1) % ads.length;
+        function nextAd() {
+            newCurrentIndex = (newCurrentIndex + 1) % ads.length;
+            showAd(newCurrentIndex);
+        }
+
+        function prevAd() {
+            newCurrentIndex = (newCurrentIndex - 1 + ads.length) % ads.length;
+            showAd(newCurrentIndex);
+        }
+
+        function startAutoAd() {
+            newAutoSlideInterval = setInterval(nextAd, 5000);
+        }
+
+        function stopAutoAd() {
+            clearInterval(newAutoSlideInterval);
+        }
+
+        adContainer.addEventListener('mouseover', stopAutoAd);
+        adContainer.addEventListener('mouseout', startAutoAd);
+
+        // Initial display
         showAd(newCurrentIndex);
+        startAutoAd();
     }
+});
 
-    function prevAd() {
-        newCurrentIndex = (newCurrentIndex - 1 + ads.length) % ads.length;
-        showAd(newCurrentIndex);
-    }
-
-    function startAutoAd() {
-        newAutoSlideInterval = setInterval(nextAd, 5000);
-    }
-
-    function stopAutoAd() {
-        clearInterval(newAutoSlideInterval);
-    }
-
-    adContainer.addEventListener('mouseover', stopAutoAd);
-    adContainer.addEventListener('mouseout', startAutoAd);
-
-    // Initial display
-    showAd(newCurrentIndex);
-    startAutoAd();
-}
 
 
 
