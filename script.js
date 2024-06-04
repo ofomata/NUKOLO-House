@@ -221,10 +221,19 @@ document.addEventListener("DOMContentLoaded", () => {
         if (positionInCart >= 0) {
             carts[positionInCart].quantity++;
         } else {
-            carts.push({
-                productId: productId,
-                quantity: 1
-            });
+            let productElement = document.querySelector(`.category-content-box[data-id="${productId}"]`);
+            if (productElement) {
+                let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
+                carts.push({
+                    productId: productId,
+                    name: productName,
+                    description: productDescription,
+                    quantity: 1
+                });
+            } else {
+                console.error("Product element not found.");
+            }
         }
         updateCartHTML();
         saveCartToLocalStorage();
@@ -239,6 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (productElement) {
                 let productImage = productElement.querySelector("img").src;
                 let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
                 let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
 
                 totalQuantity += cartItem.quantity;
@@ -251,6 +261,9 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div class="cart-control">
                             <div class="name">
                                 ${productName}
+                            </div>
+                            <div class="description">
+                                ${productDescription}
                             </div>
                             <div class="quantity">
                                 <span class="minus fa-solid fa-minus"></span>
@@ -313,6 +326,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initApp();
 });
+
 
 
 

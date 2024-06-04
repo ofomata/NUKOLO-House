@@ -386,10 +386,7 @@ nav{
 }
 
 .product-info .coffee-price{
-    color: #243455;
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 5px;
+    display: none;
 }
 
 .shop-now{
