@@ -480,6 +480,130 @@ nav{
     border-radius: 8px;
 }
 
+
+/* Shop Product Pages */
+
+/* CAFE MILANO PAGE */
+.main-coffee-options{
+    display: none;
+}
+
+.coffee-bag-image{
+    padding: 40px 50px;
+}
+
+.coffee-bag-image img{
+    width: 100%;
+}
+
+.coffee-bag-info{
+    background: #eaebef;
+    margin: 32px auto;
+    padding-top: 32px;
+    padding-bottom: 32px;
+}
+
+.coffee-bag-info h1{
+    font-size: 22px;
+    color: #243455;
+}
+
+.product-origin{
+    font-weight: bold;
+    margin: 8px auto;
+}
+
+.about-product{
+    line-height: 1.5;
+}
+
+.product-grind{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+.product-grind p{
+    font-weight: bold;
+}
+
+.product-grind div{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.product-grind label{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.product-size{
+    margin: 16px auto;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.product-size p{
+    font-weight: bold;
+}
+
+.size-box{
+    background: #FACD3D;
+    padding: 8px 12px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.sub-and-save{
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.sub-and-save div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.once{
+    border: 1px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    margin-bottom: 16px;
+}
+
+.once div{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-to-cart{
+    background: #FACD3D;
+    outline: none;
+    border: 2px solid #FACD3D;
+    padding: 8px 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.add-to-cart:hover{
+    background: none;
+    color: #000000;
+    transition: .5s;
+}
+
 .quality-campaign{
     background: #eaebef;
     padding-top: 40px;
@@ -1641,6 +1765,34 @@ a.guest-event{
         z-index: -999;
         pointer-events: none;
     }
+
+    /* SHOP PRODUCT PAGE */
+
+    .coffee-bag-image{
+        width: 100%;
+    }
+
+    .main-coffee-details {
+        display: flex;
+        align-items: center;
+        background: #eaebef;
+    }
+
+    .shop-product-information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+        margin: 40px 50px;
+    }
+
+    .main-coffee-options{
+        display: unset;
+    }
+
+    .main-coffee-options img{
+        width: 100px;
+    }
     
     /* .sub-bg{
         position: relative;
@@ -1914,6 +2066,14 @@ a.guest-event{
     .event-page{
         gap: 50px;
     }
+
+    /* SHOP PRODUCT PAGE */
+
+    .shop-product-information{
+        gap: 70px;
+        margin: 40px 70px;
+    }
+
 }
 
 @media (min-width: 950px) {
@@ -1931,6 +2091,11 @@ a.guest-event{
 
     .subscription-page-banner{
         height: 60vh;
+    }
+
+    .shop-product-information{
+        gap: 100px;
+        margin: 40px 100px;
     }
 }
 
