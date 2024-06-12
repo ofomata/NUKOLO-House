@@ -157,3 +157,147 @@ const initApp = () => {
 }
 
 initApp();
+
+
+
+// Add Items To Cart
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cartIcon = document.querySelector(".cart");
+    const showCart = document.querySelector("body");
+    const closeCart = document.querySelector(".close");
+    let listCartHTML = document.querySelector(".listcart");
+    let iconCartSpan = document.querySelector(".cart span");
+
+    let carts = [];
+
+    cartIcon.addEventListener("click", () => {
+        showCart.classList.add("showcart");
+    });
+
+    closeCart.addEventListener("click", () => {
+        showCart.classList.remove("showcart");
+    });
+
+    document.querySelectorAll(".shop-now").forEach(button => {
+        button.addEventListener("click", (event) => {
+            let productElement = event.target.closest(".category-content-box");
+            if (productElement) {
+                let productId = productElement.dataset.id;
+                addToCart(productId);
+            } else {
+                console.error("Product element not found.");
+            }
+        });
+    });
+
+    const addToCart = (productId) => {
+        let positionInCart = carts.findIndex(item => item.productId === productId);
+        if (positionInCart >= 0) {
+            carts[positionInCart].quantity++;
+        } else {
+            let productElement = document.querySelector(`.category-content-box[data-id="${productId}"]`);
+            if (productElement) {
+                let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
+                carts.push({
+                    productId: productId,
+                    name: productName,
+                    description: productDescription,
+                    quantity: 1
+                });
+            } else {
+                console.error("Product element not found.");
+            }
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    const updateCartHTML = () => {
+        listCartHTML.innerHTML = "";
+        let totalQuantity = 0;
+
+        carts.forEach(cartItem => {
+            let productElement = document.querySelector(`.category-content-box[data-id="${cartItem.productId}"]`);
+            if (productElement) {
+                let productImage = productElement.querySelector("img").src;
+                let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
+                let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
+
+                totalQuantity += cartItem.quantity;
+
+                let cartItemHTML = `
+                    <div class="item" data-id="${cartItem.productId}">
+                        <div class="imagecart">
+                            <img src="${productImage}" alt="">
+                        </div>
+                        <div class="cart-control">
+                            <div class="name">
+                                ${productName}
+                            </div>
+                            <div class="description">
+                                ${productDescription}
+                            </div>
+                            <div class="quantity">
+                                <span class="minus fa-solid fa-minus"></span>
+                                <span>${cartItem.quantity}</span>
+                                <span class="plus fa-solid fa-plus"></span>
+                            </div>
+                        </div>
+                        <div class="totalprice">
+                            $${(productPrice * cartItem.quantity).toFixed(2)}
+                        </div>
+                    </div>
+                `;
+                listCartHTML.innerHTML += cartItemHTML;
+            }
+        });
+
+        iconCartSpan.textContent = totalQuantity;
+    };
+
+    listCartHTML.addEventListener("click", (event) => {
+        if (event.target.classList.contains("minus") || event.target.classList.contains("plus")) {
+            let productId = event.target.closest(".item").dataset.id;
+            let action = event.target.classList.contains("plus") ? "plus" : "minus";
+            changeQuantity(productId, action);
+        }
+    });
+
+    const changeQuantity = (productId, action) => {
+        let cartItemIndex = carts.findIndex(item => item.productId === productId);
+
+        if (cartItemIndex >= 0) {
+            if (action === "plus") {
+                carts[cartItemIndex].quantity++;
+            } else if (action === "minus") {
+                carts[cartItemIndex].quantity--;
+                if (carts[cartItemIndex].quantity <= 0) {
+                    carts.splice(cartItemIndex, 1);
+                }
+            }
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    const saveCartToLocalStorage = () => {
+        localStorage.setItem("cart", JSON.stringify(carts));
+    };
+
+    const loadCartFromLocalStorage = () => {
+        let storedCart = localStorage.getItem("cart");
+        if (storedCart) {
+            carts = JSON.parse(storedCart);
+            updateCartHTML();
+        }
+    };
+
+    const initApp = () => {
+        loadCartFromLocalStorage();
+    };
+
+    initApp();
+});

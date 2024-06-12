@@ -520,7 +520,7 @@ nav{
 .product-grind{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 12px;
     margin-top: 16px;
 }
 
@@ -531,7 +531,7 @@ nav{
 .product-grind div{
     display: flex;
     align-items: center;
-    gap: 16px;
+    gap: 10px;
 }
 
 .product-grind label{
@@ -539,15 +539,21 @@ nav{
     align-items: center;
     gap: 10px;
 }
-
 .product-size{
     margin: 16px auto;
     display: flex;
-    align-items: center;
+    align-items: start;
     gap: 16px;
 }
 
-.product-size p{
+.product-size div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.product-size p, span{
     font-weight: bold;
 }
 
@@ -556,6 +562,7 @@ nav{
     padding: 8px 12px;
     text-align: center;
     color: #FFFFFF;
+    cursor: pointer;
 }
 
 .sub-and-save{
@@ -1792,6 +1799,7 @@ a.guest-event{
 
     .main-coffee-options img{
         width: 100px;
+        margin-bottom: 5px;
     }
     
     /* .sub-bg{

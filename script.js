@@ -189,19 +189,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.addEventListener("DOMContentLoaded", () => {
     const cartIcon = document.querySelector(".cart");
-    const showCart = document.querySelector("body");
     const closeCart = document.querySelector(".close");
-    let listCartHTML = document.querySelector(".listcart");
-    let iconCartSpan = document.querySelector(".cart span");
+    const listCartHTML = document.querySelector(".listcart");
+    const iconCartSpan = document.querySelector(".cart span");
 
-    let carts = [];
+    if (!cartIcon || !closeCart || !listCartHTML || !iconCartSpan) {
+        console.error("One or more required elements are missing.");
+        return;
+    }
+
+    // Load cart from local storage
+    let carts = JSON.parse(localStorage.getItem("cart")) || [];
 
     cartIcon.addEventListener("click", () => {
-        showCart.classList.add("showcart");
+        document.body.classList.add("showcart");
+        updateCartHTML();  // Ensure the cart updates when opened
     });
 
     closeCart.addEventListener("click", () => {
-        showCart.classList.remove("showcart");
+        document.body.classList.remove("showcart");
     });
 
     document.querySelectorAll(".shop-now").forEach(button => {
@@ -209,31 +215,30 @@ document.addEventListener("DOMContentLoaded", () => {
             let productElement = event.target.closest(".category-content-box");
             if (productElement) {
                 let productId = productElement.dataset.id;
-                addToCart(productId);
+                let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
+                let productImage = productElement.querySelector("img").src;
+                let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
+                addToCart(productId, productName, productDescription, productImage, productPrice);
             } else {
                 console.error("Product element not found.");
             }
         });
     });
 
-    const addToCart = (productId) => {
+    const addToCart = (productId, productName, productDescription, productImage, productPrice) => {
         let positionInCart = carts.findIndex(item => item.productId === productId);
         if (positionInCart >= 0) {
             carts[positionInCart].quantity++;
         } else {
-            let productElement = document.querySelector(`.category-content-box[data-id="${productId}"]`);
-            if (productElement) {
-                let productName = productElement.querySelector(".coffee-name").textContent;
-                let productDescription = productElement.querySelector(".coffee-info").textContent;
-                carts.push({
-                    productId: productId,
-                    name: productName,
-                    description: productDescription,
-                    quantity: 1
-                });
-            } else {
-                console.error("Product element not found.");
-            }
+            carts.push({
+                productId: productId,
+                name: productName,
+                description: productDescription,
+                image: productImage,
+                price: productPrice,
+                quantity: 1
+            });
         }
         updateCartHTML();
         saveCartToLocalStorage();
@@ -244,40 +249,32 @@ document.addEventListener("DOMContentLoaded", () => {
         let totalQuantity = 0;
 
         carts.forEach(cartItem => {
-            let productElement = document.querySelector(`.category-content-box[data-id="${cartItem.productId}"]`);
-            if (productElement) {
-                let productImage = productElement.querySelector("img").src;
-                let productName = productElement.querySelector(".coffee-name").textContent;
-                let productDescription = productElement.querySelector(".coffee-info").textContent;
-                let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
+            totalQuantity += cartItem.quantity;
 
-                totalQuantity += cartItem.quantity;
-
-                let cartItemHTML = `
-                    <div class="item" data-id="${cartItem.productId}">
-                        <div class="imagecart">
-                            <img src="${productImage}" alt="">
+            let cartItemHTML = `
+                <div class="item" data-id="${cartItem.productId}">
+                    <div class="imagecart">
+                        <img src="${cartItem.image}" alt="">
+                    </div>
+                    <div class="cart-control">
+                        <div class="name">
+                            ${cartItem.name}
                         </div>
-                        <div class="cart-control">
-                            <div class="name">
-                                ${productName}
-                            </div>
-                            <div class="description">
-                                ${productDescription}
-                            </div>
-                            <div class="quantity">
-                                <span class="minus fa-solid fa-minus"></span>
-                                <span>${cartItem.quantity}</span>
-                                <span class="plus fa-solid fa-plus"></span>
-                            </div>
+                        <div class="description">
+                            ${cartItem.description}
                         </div>
-                        <div class="totalprice">
-                            $${(productPrice * cartItem.quantity).toFixed(2)}
+                        <div class="quantity">
+                            <span class="minus fa-solid fa-minus"></span>
+                            <span>${cartItem.quantity}</span>
+                            <span class="plus fa-solid fa-plus"></span>
                         </div>
                     </div>
-                `;
-                listCartHTML.innerHTML += cartItemHTML;
-            }
+                    <div class="totalprice">
+                        $${(cartItem.price * cartItem.quantity).toFixed(2)}
+                    </div>
+                </div>
+            `;
+            listCartHTML.innerHTML += cartItemHTML;
         });
 
         iconCartSpan.textContent = totalQuantity;
@@ -312,20 +309,18 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("cart", JSON.stringify(carts));
     };
 
-    const loadCartFromLocalStorage = () => {
-        let storedCart = localStorage.getItem("cart");
-        if (storedCart) {
-            carts = JSON.parse(storedCart);
-            updateCartHTML();
-        }
-    };
-
     const initApp = () => {
-        loadCartFromLocalStorage();
+        // Initialize the cart HTML on page load
+        updateCartHTML();
     };
 
     initApp();
 });
+
+
+
+
+
 
 
 
