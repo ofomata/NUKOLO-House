@@ -6,7 +6,7 @@
 }
  
 .index-body{
-    background-image: url(/image/Welcome\ page\ fake\ \(1\).jpg);
+    background-image: url(/image/Welcome\ page\ NH\ banner\ Design.jpg);
     width: 100%;
     height: 33vh;
     background-size: cover;
@@ -266,11 +266,19 @@ nav{
 }
 
 .shop-banner1{
-    background-image: url(/image/Mobile\ Banner\ 2.jpg);
+    background-image: url(/image/meduim\ roast\ main\ banner.jpg);
 }
 
 .shop-banner2{
+    background-image: url(/image/shop\ banner\ 3.jpg);
+}
+
+.shop-banner3{
     background-image: url(/image/Mobile\ Banner\ 3\ \(1\).jpg);
+}
+
+.shop-banner4{
+    background-image: url(/image/fake\ banner\ 4.jpg);
 }
 
 #slider-container {
@@ -779,7 +787,7 @@ nav{
 }
 
 .newsletter-section{
-    background: #EFE5DB;
+    background: #FACD3D;
 }
 
 .newsletter-content{
@@ -815,12 +823,12 @@ nav{
     outline: none;
     border: none;
     background: #243455;
-    color: #EFE5DB;
+    color: #FFFFFF;
     font-weight: bold;
     padding: 10px 20px;
     border-radius: 32px;
     cursor: pointer;
-    border: 2px solid;
+    border: 2px solid transparent;
 }
 
 .newsletter-button:hover{
