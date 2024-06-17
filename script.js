@@ -319,7 +319,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const items = document.querySelectorAll(".grind-type");
 
+items.forEach((item) => {
+    item.addEventListener("click", () => {
+        item.classList.toggle("checked");
+    });
+})
+
+
+const orderType = document.querySelectorAll(".order-type");
+
+orderType.forEach((item) => {
+    item.addEventListener("click", () => {
+        // Uncheck all items first
+        orderType.forEach((i) => i.classList.remove("checked"));
+        
+        // Then check the clicked item
+        item.classList.toggle("checked");
+    });
+});
 
 
 
