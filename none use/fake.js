@@ -301,3 +301,157 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initApp();
 });
+
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const listCartHTML = document.querySelector(".listcart");
+    const iconCartSpan = document.querySelector(".cart span");
+    const addToCartButton = document.querySelector(".add-to-cart");
+    let selectedBundles = [];
+
+    if (!listCartHTML || !iconCartSpan || !addToCartButton) {
+        console.error("One or more required elements are missing.");
+        return;
+    }
+
+    // Load cart from local storage
+    let carts = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Function to add item to cart
+    const addToCart = (productId, productName, productDescription, productImage, productPrice, productQuantity) => {
+        let positionInCart = carts.findIndex(item => item.productId === productId);
+        if (positionInCart >= 0) {
+            carts[positionInCart].quantity += productQuantity;
+            carts[positionInCart].price += productPrice;
+        } else {
+            carts.push({
+                productId: productId,
+                name: productName,
+                description: productDescription,
+                image: productImage,
+                price: productPrice,
+                quantity: productQuantity
+            });
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    // Function to update the cart HTML
+    const updateCartHTML = () => {
+        listCartHTML.innerHTML = "";
+        let totalQuantity = 0;
+
+        carts.forEach(cartItem => {
+            totalQuantity += cartItem.quantity;
+
+            let cartItemHTML = `
+                <div class="item" data-id="${cartItem.productId}">
+                    <div class="imagecart">
+                        <img src="${cartItem.image}" alt="">
+                    </div>
+                    <div class="cart-control">
+                        <div class="name">
+                            ${cartItem.name}
+                        </div>
+                        <div class="description">
+                            ${cartItem.description}
+                        </div>
+                        <div class="quantity">
+                            <span class="minus fa-solid fa-minus"></span>
+                            <span>${cartItem.quantity}</span>
+                            <span class="plus fa-solid fa-plus"></span>
+                        </div>
+                    </div>
+                    <div class="totalprice">
+                        $${(cartItem.price).toFixed(2)}
+                    </div>
+                </div>
+            `;
+            listCartHTML.innerHTML += cartItemHTML;
+        });
+
+        iconCartSpan.textContent = totalQuantity;
+    };
+
+    // Function to handle quantity changes
+    const changeQuantity = (productId, action) => {
+        let cartItemIndex = carts.findIndex(item => item.productId === productId);
+
+        if (cartItemIndex >= 0) {
+            if (action === "plus") {
+                carts[cartItemIndex].quantity++;
+            } else if (action === "minus") {
+                carts[cartItemIndex].quantity--;
+                if (carts[cartItemIndex].quantity <= 0) {
+                    carts.splice(cartItemIndex, 1);
+                }
+            }
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    // Save cart to local storage
+    const saveCartToLocalStorage = () => {
+        localStorage.setItem("cart", JSON.stringify(carts));
+    };
+
+    // Add event listener to add to cart button
+    addToCartButton.addEventListener("click", () => {
+        if (selectedBundles.length > 0) {
+            let totalBundlePrice = 0;
+            let bundleDescriptions = [];
+
+            selectedBundles.forEach(bundle => {
+                let bundleElement = bundle.closest(".grind-type");
+                let bundleText = bundleElement.querySelector(".item-text").textContent;
+                let bundlePrice = parseFloat(bundleText.match(/\$(\d+\.?\d*)/)[1]);
+                
+                totalBundlePrice += bundlePrice;
+                bundleDescriptions.push(bundleText);
+            });
+
+            let productName = "Coffee Bundle";
+            let productDescription = bundleDescriptions.join(", ");
+            let productImage = document.querySelector(".coffee-bag-image img").src;
+
+            addToCart("bundle-combined", productName, productDescription, productImage, totalBundlePrice, 1);
+
+            selectedBundles = []; // Clear selected bundles after adding to cart
+            document.querySelectorAll(".coffee-bundle-div.checked").forEach(item => {
+                item.classList.remove("checked");
+            });
+        } else {
+            console.error("No bundle selected.");
+        }
+    });
+
+    // Add event listener to bundle items
+    const items = document.querySelectorAll(".coffee-bundle-div");
+    items.forEach((item) => {
+        item.addEventListener("click", () => {
+            item.classList.toggle("checked");
+            let checkIcon = item.querySelector(".check-icon");
+
+            if (item.classList.contains("checked")) {
+                selectedBundles.push(checkIcon);
+            } else {
+                selectedBundles = selectedBundles.filter(bundle => bundle !== checkIcon);
+            }
+        });
+    });
+
+    // Initialize the app
+    const initApp = () => {
+        updateCartHTML();
+    };
+
+    initApp();
+
+    // Update cart immediately after adding a product
+    addToCartButton.addEventListener("click", updateCartHTML);
+});

@@ -352,6 +352,13 @@ nav{
 .category-content-box{
     flex-basis: 350px;
     background: #EFE5DB;
+    display: inline-block;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
+}
+
+.category-content-box:hover {
+    transform: scale(1.1);
 }
 
 .category-content-box img{
@@ -538,7 +545,8 @@ nav{
     flex-wrap: wrap;
 }
 
-.product-grind .grind-type{
+.product-grind .grind-type,
+.coffee-bundle-div{
     display: flex;
     align-items: center;
     gap: 5px;
@@ -546,7 +554,8 @@ nav{
     cursor: pointer;
 }
 
-.item-text{
+.item-text,
+.item-price{
     font-weight: normal;
 }
 
