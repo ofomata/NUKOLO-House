@@ -455,3 +455,139 @@ document.addEventListener("DOMContentLoaded", () => {
     // Update cart immediately after adding a product
     addToCartButton.addEventListener("click", updateCartHTML);
 });
+
+
+
+
+
+// main Add Items To Cart
+
+document.addEventListener("DOMContentLoaded", () => {
+    const cartIcon = document.querySelector(".cart");
+    const closeCart = document.querySelector(".close");
+    const listCartHTML = document.querySelector(".listcart");
+    const iconCartSpan = document.querySelector(".cart span");
+
+    if (!cartIcon || !closeCart || !listCartHTML || !iconCartSpan) {
+        console.error("One or more required elements are missing.");
+        return;
+    }
+
+    // Load cart from local storage
+    let carts = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartIcon.addEventListener("click", () => {
+        document.body.classList.add("showcart");
+        updateCartHTML();  // Ensure the cart updates when opened
+    });
+
+    closeCart.addEventListener("click", () => {
+        document.body.classList.remove("showcart");
+    });
+
+    document.querySelectorAll(".shop-now").forEach(button => {
+        button.addEventListener("click", (event) => {
+            let productElement = event.target.closest(".category-content-box");
+            if (productElement) {
+                let productId = productElement.dataset.id;
+                let productName = productElement.querySelector(".coffee-name").textContent;
+                let productDescription = productElement.querySelector(".coffee-info").textContent;
+                let productImage = productElement.querySelector("img").src;
+                let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
+                addToCart(productId, productName, productDescription, productImage, productPrice);
+            } else {
+                console.error("Product element not found.");
+            }
+        });
+    });
+
+    const addToCart = (productId, productName, productDescription, productImage, productPrice) => {
+        let positionInCart = carts.findIndex(item => item.productId === productId);
+        if (positionInCart >= 0) {
+            carts[positionInCart].quantity++;
+        } else {
+            carts.push({
+                productId: productId,
+                name: productName,
+                description: productDescription,
+                image: productImage,
+                price: productPrice,
+                quantity: 1
+            });
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    const updateCartHTML = () => {
+        listCartHTML.innerHTML = "";
+        let totalQuantity = 0;
+
+        carts.forEach(cartItem => {
+            totalQuantity += cartItem.quantity;
+
+            let cartItemHTML = `
+                <div class="item" data-id="${cartItem.productId}">
+                    <div class="imagecart">
+                        <img src="${cartItem.image}" alt="">
+                    </div>
+                    <div class="cart-control">
+                        <div class="name">
+                            ${cartItem.name}
+                        </div>
+                        <div class="description">
+                            ${cartItem.description}
+                        </div>
+                        <div class="quantity">
+                            <span class="minus fa-solid fa-minus"></span>
+                            <span>${cartItem.quantity}</span>
+                            <span class="plus fa-solid fa-plus"></span>
+                        </div>
+                    </div>
+                    <div class="totalprice">
+                        $${(cartItem.price * cartItem.quantity).toFixed(2)}
+                    </div>
+                </div>
+            `;
+            listCartHTML.innerHTML += cartItemHTML;
+        });
+
+        iconCartSpan.textContent = totalQuantity;
+    };
+
+    listCartHTML.addEventListener("click", (event) => {
+        if (event.target.classList.contains("minus") || event.target.classList.contains("plus")) {
+            let productId = event.target.closest(".item").dataset.id;
+            let action = event.target.classList.contains("plus") ? "plus" : "minus";
+            changeQuantity(productId, action);
+        }
+    });
+
+    const changeQuantity = (productId, action) => {
+        let cartItemIndex = carts.findIndex(item => item.productId === productId);
+
+        if (cartItemIndex >= 0) {
+            if (action === "plus") {
+                carts[cartItemIndex].quantity++;
+            } else if (action === "minus") {
+                carts[cartItemIndex].quantity--;
+                if (carts[cartItemIndex].quantity <= 0) {
+                    carts.splice(cartItemIndex, 1);
+                }
+            }
+        }
+        updateCartHTML();
+        saveCartToLocalStorage();
+    };
+
+    const saveCartToLocalStorage = () => {
+        localStorage.setItem("cart", JSON.stringify(carts));
+    };
+
+    const initApp = () => {
+        // Initialize the cart HTML on page load
+        updateCartHTML();
+    };
+
+    initApp();
+});

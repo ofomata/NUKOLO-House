@@ -201,6 +201,56 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load cart from local storage
     let carts = JSON.parse(localStorage.getItem("cart")) || [];
 
+    // Predefined list of products from the shop page
+    const products = [
+        {
+            id: "1",
+            name: "Cafe Milano - Chiapas, MX",
+            description: "Premium Meduim Roast | 100% Arabica",
+            image: "image/aphotos (1).JPG",
+            price: 25.00
+        },
+        {
+            id: "2",
+            name: "Cafe Dulce Crema - Oaxaca, MX",
+            description: "Premium Dark Roast | 100% Arabica",
+            image: "image/aphotos (19).JPG",
+            price: 35.00
+        },
+        {
+            id: "3",
+            name: "Decaf - Veracruz, MX",
+            description: "Premium Roast | 100% Arabica",
+            image: "image/decaf coffee.jpeg",
+            price: 20.00
+        },
+        {
+            id: "4",
+            name: "NH Tee Shirt",
+            description: "Crafted with premium materials and featuring our iconic logo, it’s the perfect blend of comfort and style.",
+            image: "image/tee shirt (2).png",
+            price: 25.00
+        },
+        {
+            id: "5",
+            name: "NH Tote Bag",
+            description: "Crafted with durable materials and featuring our signature logo, this tote bag is perfect for carrying your essentials in style.",
+            image: "image/apparel.jpeg",
+            price: 40.00
+        },
+        {
+            id: "6",
+            name: "NH Hats",
+            description: "Designed for comfort and flair, these hats are perfect for any adventure.",
+            image: "image/nh hat original.png",
+            price: 20.00
+        },
+    ];
+
+    const findProductById = (id) => {
+        return products.find(product => product.id === id);
+    };
+
     cartIcon.addEventListener("click", () => {
         document.body.classList.add("showcart");
         updateCartHTML();  // Ensure the cart updates when opened
@@ -212,14 +262,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.querySelectorAll(".shop-now").forEach(button => {
         button.addEventListener("click", (event) => {
-            let productElement = event.target.closest(".category-content-box");
+            let productElement = event.target.closest(".category-content-box, .main-coffee-details");
             if (productElement) {
                 let productId = productElement.dataset.id;
-                let productName = productElement.querySelector(".coffee-name").textContent;
-                let productDescription = productElement.querySelector(".coffee-info").textContent;
-                let productImage = productElement.querySelector("img").src;
-                let productPrice = parseFloat(productElement.querySelector(".coffee-price").textContent.replace('$', ''));
-                addToCart(productId, productName, productDescription, productImage, productPrice);
+                let product = findProductById(productId);
+                if (product) {
+                    addToCart(product.id, product.name, product.description, product.image, product.price);
+                } else {
+                    console.error("Product not found in predefined list.");
+                }
             } else {
                 console.error("Product element not found.");
             }
@@ -316,6 +367,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     initApp();
 });
+
+
 
 
 
